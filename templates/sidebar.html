@@ -1,0 +1,40 @@
+{% block sidebar %}
+    {% load static %}
+    <head>
+        <link rel="stylesheet" href="{% static 'css/sidebarBlock.css' %}">
+    </head>
+    <div id="sidebar" class="pt-4">
+        <a href="/menu" class="navOption">
+            <p>Menú principal</p>
+        </a>
+        <h3 class="font-bold">
+            Opciones
+        </h3>
+        <a href="/ventas/registrarVenta" class="navOption">
+            <p>Registro de venta</p>
+        </a>
+        <a href="/prospectos" class="navOption">
+            <p>Solicitudes de contacto</p>
+        </a>
+        {% if tipo == 'MA' %}
+            <a href="/comisiones" class="navOption">
+                <p>Comisiones</p>
+            </a>
+            <a href="/ventas" class="navOption"> 
+                <p>Ventas</p>
+            </a>
+            <a href="/clientes" class="navOption">
+                <p>Clientes</p>
+            </a>
+            <a href="/vendedores" class="navOption">
+                <p>Vendedores</p>
+            </a>
+            <a href="/productos" class="navOption">
+                <p>Productos</p>
+            </a>
+            <a href="/sucursales" class="navOption">
+                <p>Sucursales</p>
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}

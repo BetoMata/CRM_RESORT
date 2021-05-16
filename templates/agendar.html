@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/agendar.css' %}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
+    <title>Agendar</title>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container logo-nav-container">
+            <img src="{% static 'img/logo1.png' %}" id="logo">
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">SUV's</a></li>
+                    <li><a href="#">Sedanes</a></li>
+                    <li><a href="#">Hatchback</a></li>
+                    <li><a href="#">Coupés</a></li>
+                    <li><a href="#">Vanes</a></li>
+                    <li><a href="#">EQ & EQ Power</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    
+    <main class="section">
+    
+    <h1 id="SolicitarCita">Solicitar Cita</h1>
+    
+    <div class="slider">
+        
+        <div class="info">
+            <h1 id="titulo">B-CLASS</h1>
+            <p id="disponible">Sistema de Infroentrenamiento Disponible en</p>
+            <p id="nombre">BMUX Plug-in hibrido</p>
+            <p id="precio">Desde $766,900 MXN</p>
+        </div>
+        
+        <div class="imagen">
+            <img src="{% static 'img/car.png' %}" alt="" id="imagen">
+        </div>
+        
+    </div>
+
+
+
+    <div class="distribuidor">
+        <h1 id="dist"> Distribuidor</h1>
+        <p id="ingresa">Ingresa tu ubicación para ver los distribuidores <br> más cercanos</p>
+        <input type="text" placeholder="Código postal, Ciudad o Estado" id="ubicacion">
+    </div>
+
+    
+
+    <div class="infopersonal">
+        <h1 id="infop">Información Personal</h1>
+        <input type="text" placeholder="Nombre" class="inputs">
+        <input type="text" placeholder="Apellidos" class="inputs">
+        <input type="text" placeholder="Correo Electrónico" class="inputs">
+        <input type="text" placeholder="Teléfono" class="inputs">
+    </div>
+
+    </main>
+
+</body>
+</html>

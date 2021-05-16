@@ -1,0 +1,9 @@
+{% block nav%}
+{% load static %}
+<nav class="bg-indigo-900 flex flex-row justify-between items-center py-3">
+    <img src="{% static 'img/logo1.png' %}" class="w-12 ml-8" alt="logo" id="logo">
+    <div class="mr-8 py-1 px-4 box-border bg-red-600 hover:bg-red-500 text-white rounded-md">
+        <a href="/logout" id="logoutButton" class="">Cerrar sesión</a>
+    </div>
+</nav>
+{% endblock %}

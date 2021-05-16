@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+server = "python manage.py runserver"
+migrate = "python manage.py migrate"
+makemigrations = "python manage.py makemigrations"
+createsuperuser = "python manage.py createsuperuser"
+
+[packages]
+django = "==3.1.6"
+psycopg2 = "*"
+python-dotenv = "*"
+python-dateutil = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

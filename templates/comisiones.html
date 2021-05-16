@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es" class="m-0 p-0 h-full w-full box-border flex flex-col">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+    <title>Mercedes Benz | Comisiones</title>
+</head>
+
+
+<body class="m-0 p-0 h-full w-full box-border flex flex-col">
+    {% include 'nav.html' %}
+    <div class="inline-flex flex-row w-full h-full bg-gray-200">
+        {% include "sidebar.html" with tipo=User.tipo %}
+        <div class="w-full pt-8 flex flex-col items-center">
+            <div class="flex flex-col w-11/12 items-center">
+                
+                <div class="flex w-full justify-between flex-wrap">
+                    <div class="chart w-6/12">
+                        <canvas id="comisionesChart" width="600" height="300"></canvas>
+                    </div>
+                    <table class="table-auto bg-white w-5/12 overflow-y-auto">
+                        <tr class="rounded-md py-2 bg-gray-200 border-none">
+                            <th class="font-bold py-2 text-left border-none" colspan="3">Top 3 comisiones</th>
+                        </tr>
+                        <tr class="bg-indigo-900 text-white rounded-md py-2">
+                            <th class="py-3 text-lg">Empleado</th>
+                            <th class="py-3 text-lg">Sucursal</th>
+                            <th class="py-3 text-lg">Total</th>
+                        </tr>
+                        {% for i in top %}
+                            <tr class="text-center py-2">
+                                <td class="py-2"> {{ i.empleado }} </td>
+                                <td class="py-2"> {{ i.sucursal }} </td>
+                                <td class="py-2"> {{ i.total }} </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <table class="table-auto bg-white w-full overflow-y-auto mt-6">
+                    <tr class="rounded-md py-2 bg-gray-200 border-none">
+                        <th class="font-bold py-2 text-left border-none" colspan="4">Comisiones del mes</th>
+                    </tr>
+                    <tr class="bg-indigo-900 text-white rounded-md py-2">
+                        <th class="py-3 text-lg">Empleado</th>
+                        <th class="py-3 text-lg">Venta</th>
+                        <th class="py-3 text-lg">Fecha</th>
+                        <th class="py-3 text-lg">Total</th>
+                    </tr>
+                    {% for i in comisiones %}
+                        <tr class="text-center py-2">
+                            <td class="py-2"> {{ i.empleado.nombre }} {{ i.empleado.apellido }} </td>
+                            <td class="py-2"> {{ i.venta }} </td>
+                            <td class="py-2"> {{ i.fecha }} </td>
+                            <td class="py-2"> ${{ i.total }} </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('comisionesChart');
+        var topData = "{{arrayData|safe}}"
+        topData = JSON.parse(topData)
+        console.log(topData)
+        var comisionesChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Top 1', 'Top 2', 'Top 3'].slice(0, topData.length),
+                datasets: [{
+                    label: 'Comisiones',
+                    data: topData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132)',
+                        'rgba(54, 162, 235)',
+                        'rgba(255, 206, 86)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

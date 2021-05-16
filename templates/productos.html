@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" class="m-0 p-0 h-full w-full box-border flex flex-col">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Mercedes Benz | Productos</title>
+</head>
+<body class="m-0 p-0 h-full w-full box-border flex flex-col">
+    {% include 'nav.html' %}
+    <div class="inline-flex flex-row w-full h-full bg-gray-200">
+        {% include "sidebar.html" with tipo=User.tipo %}
+        <div class="w-full pt-8 flex justify-center">
+            <div class="flex flex-col w-11/12 items-center">
+                <table class="table-auto bg-white w-full">
+                    <tr class="bg-indigo-900 text-white rounded-md py-2">
+                        <th class="py-3 text-lg">Modelo</th>
+                        <th class="py-3 text-lg">Descripción</th>
+                        <th class="py-3 text-lg">Sucursal</th>
+                        <th class="py-3 text-lg">Existencias</th>
+                        <th class="py-3 text-lg">Estatus</th>
+                        <th class="py-3 text-lg">Precio</th>
+                        <th class="py-3 text-lg">Acciones</th>
+                    </tr>
+                    {% for i in productos %}
+                        <tr class="text-center py-2">
+                            <td class="py-2"> {{ i.modelo }} </td>
+                            <td class="py-2"> {{ i.descripcion }} </td>
+                            <td class="py-2"> {{ i.sucursal }} </td>
+                            <td class="py-2"> {{ i.existencias }} </td>
+                            {% if i.status == '1' %}
+                                <td class="py-2"> Activo </td>
+                            {% else %}
+                                <td class="py-2"> Inactivo </td>
+                            {% endif %}
+                            <td class="py-2"> ${{ i.precio_unitario }} </td>
+                            <td class="py-2 flex flex-row justify-center">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" value="{{ i.pk }}" name="pk">
+                                    <input type="submit" value="Eliminar" class="bg-red-500 hover:bg-red-400 cursor-pointer rounded-md text-white py-1 px-4">
+                                </form>
+                                <a href="editarProducto/{{i.pk}}" class="bg-yellow-500 hover:bg-yellow-400 cursor-pointer rounded-md text-white py-1 px-4 ml-2">Editar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <a href="nuevoProducto" class="mt-4 self-end bg-green-800 text-white py-2 px-4 hover:bg-green-700">Agregar producto</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

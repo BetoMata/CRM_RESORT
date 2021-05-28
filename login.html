@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html  lang="es">
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body id="login">
+	<div id="contLogin">
+		<div id="headerLogin">
+			<h1>Login</h1>
+		</div>
+		<div id="formLogin">
+			<img src="img/logo.png">
+				<form class="loginF"method="POST" action="ValidaAcceso.php">
+					<input type="text" placeholder="&#128272; Usuario" name="usuarioDato" id="usuario" class="datosLogin">
+					<input type="password" placeholder="&#128272; Contraseña" name="contrasenaDato" id="clave" class="datosLogin">
+
+					<input class="btnEnviar" type="submit" value="Entrar" id="guardar">
+				</form>
+			<p class="link">¿No tienes una cuenta? <a href="registro.html" class="link2">Ingresa aquí</a></p>
+		</div>
+	</div>
+		
+</body>
+</html>

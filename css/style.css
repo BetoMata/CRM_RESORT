@@ -1,0 +1,130 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway';
+  font-weight: normal;
+}
+
+.menu a{
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.menu a::placeholder {
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+  opacity: 1; /* Firefox */
+}
+
+body{
+  background: #e5e5e5;
+}
+
+header{
+  background: #3498db;
+  position: fixed;
+  width: 100%;
+  height: 54px;
+}
+.barra {
+  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo img {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.titulo{
+  width: 200px;
+  height: 54px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+}
+.barra h1{
+  color: #fff;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+/*Barra lateral*/
+#sidebar{
+  background: #2c3e50;
+  width: 200px;
+  position: fixed;
+  top: 54px;
+  min-height: calc(100vh - 54px);
+}
+
+/*Menu*/
+#sidebar .menu{
+  padding: 20px 0px;
+}
+
+#sidebar .menu li{
+  display: block;
+  color: #fff;
+  padding: 10px 20px;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  width: 80%;
+}
+
+#sidebar .menu li:hover{
+  background: rgba(0, 0, 0, 0.2);
+  padding-left: 15px;
+}
+
+
+/*Container*/
+
+#container{
+  position: relative;
+  width: calc(100% - 250px);
+  min-height: calc(100vh - 54px);
+  margin-left: 250px;
+  top: 54px;
+  padding: 10px;
+  padding-top: 78px;
+  box-sizing: border-box;
+}
+
+#container .top-cont{
+  position: fixed;
+  top: 54px;
+  opacity: 1;
+  margin-left: -10px;
+  width: calc(100% - 250px);
+  z-index: 1000;
+  background: #e5e5e5;
+
+}
+
+#container .top-cont h2{
+  padding: 20px 10px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+#container .content{
+  display: inline-block;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: -10px;
+  min-height: calc(100vh - 134px);
+  background: #fff;
+}
+/*formulsrios del administrador*/

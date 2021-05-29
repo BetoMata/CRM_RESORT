@@ -3,24 +3,22 @@
 <head>
 	<title>Login</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="css/estilos.css">
 </head>
-<body id="login">
-	<div id="contLogin">
-		<div id="headerLogin">
+<body id="Login">
+	<div class="mainLogin">
+		<div class="headerLogin">
 			<h1>Login</h1>
 		</div>
-		<div id="formLogin">
+		<div class="contentLogin">
 			<img src="img/logo.png">
-				<form class="loginF"method="POST" action="ValidaAcceso.php">
-					<input type="text" placeholder="&#128272; Usuario" name="usuarioDato" id="usuario" class="datosLogin">
-					<input type="password" placeholder="&#128272; Contraseña" name="contrasenaDato" id="clave" class="datosLogin">
-
-					<input class="btnEnviar" type="submit" value="Entrar" id="guardar">
-				</form>
-			<p class="link">¿No tienes una cuenta? <a href="registro.html" class="link2">Ingresa aquí</a></p>
+			<form class="form"method="POST" action="acceder.php">
+				<input type="text" placeholder="&#128272; Usuario" name="usuario" class="inputLogin" required>
+				<input type="password" placeholder="&#128272; Contraseña" name="clave" class="inputLogin" required>
+				<input type="submit" value="Entrar" class="enviar Corto">
+			</form>
+			<p class="textLogin">¿No tienes una cuenta? <a href="registro.html" class="linkLogin">Ingresa aquí</a></p>
 		</div>
-	</div>
-		
+	</div>	
 </body>
 </html>

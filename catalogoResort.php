@@ -64,7 +64,7 @@
         {
           $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
           print("<div class='swiper-slide slide2'><img src='paquetes_img/".$Fila[0]."'><h3>".$Fila[1].$Fila[5]."</h3><h1>".$Fila[2]." Saliendo de ".$Fila[3]."</h1><h5>Precio por persona</h5><h4>MXN$</h4><h2>".$Fila[4]."</h2><br><form class='addCont'method='POST' action='ventasResort.php'>
-          <input type='hidden'name='paqueteVentaid' value='".$Fila[6]."' required><input type='hidden'name='paqueteVenta' value='".$Fila[5]."' required>
+          <input type='hidden'name='idVenta' value='".$Fila[5]."' required><input type='hidden'name='claveVenta' value='".$Fila[6]."' required>
           <input class='verMas' type='submit' value='Ver mas'>
         </form></div>");
         };

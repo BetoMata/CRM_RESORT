@@ -28,7 +28,10 @@
       <?php
         include ('ControladorBD.php');
         $Con = Conectar();
-        $SQL = "SELECT I.ruta,P.clave FROM paquetes P, paquetes_img I WHERE P.tipo = 1 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
+        $SQL = 
+        "SELECT I.ruta,P.clave,P.destino,P.salida, P.id_paquete,P.descripcion,P.precio,P.vencimiento 
+          FROM paquetes P, paquetes_img I 
+          WHERE P.tipo = 1 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
         $Resultado = Consultar($Con,$SQL);
         //Procesar resultados
 
@@ -37,24 +40,41 @@
         for($F=0;$F<$n;$F++)
         {
           $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
-          print("<div class='swiper-slide slide1' style='background-image:url(paquetes_img/".$Fila[0].")'><h3>".$Fila[1]."</h3><div class='sb-description'>
-                  <h3>Yokoi Kenji</h3>
-                  <p>Yokoi Kenji es un conferencista colombiano-japonés que se hizo famoso con un video subido a YouTube titulado Mitos y verdades sobre Colombia y Japón. Comenzó su actividad pública en 2010, dictando conferencias en la localidad de Ciudad Bolívar en Bogotá.</p>
-                </div></div>");
+
+          setlocale(LC_TIME, 'spanish');
+          $inicio = strftime("%d de %B del %Y", strtotime($Fila[7]));
+          print("
+            <div class='swiper-slide slide1' style='background-image:url(paquetes_img/".$Fila[0].")'>
+              <div class='sb-description'>
+                <h1>Viaja a ".$Fila[2]." saliendo de ".$Fila[3]."</h1>
+                <p>Disfruta de unas fabulosas vacaciones por 3 dias en ".$Fila[2]." con gastos de ".$Fila[5]." incluidos. Disponible hasta el ".$inicio."</p><br>
+                <form class='addCont'method='POST' action='ventasResort.php'>
+                  <input type='hidden'name='idVenta' value='".$Fila[4]."' required>
+                  <input type='hidden'name='claveVenta' value='".$Fila[1]."' required>
+                  <input class='verMas' type='submit' value='Ver mas'>
+                </form>
+              </div>
+            </div>");
         };
         
         Cerrar($Con);
+
       ?>
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
 </div>
+<hr>
+<h1>Viajes</h1>
+<hr>
   <div class="swiper-container slideshow2">
     <div class="swiper-wrapper wrapper2">
      <?php
      
         $Con = Conectar();
-        $SQL = "SELECT I.ruta,P.descripcion,P.destino,P.salida,P.precio, P.id_paquete, P.clave FROM paquetes P, paquetes_img I WHERE P.tipo = 2 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
+        $SQL = "SELECT I.ruta,P.descripcion,P.destino,P.salida,P.precio, P.id_paquete, P.clave 
+        FROM paquetes P, paquetes_img I 
+        WHERE P.tipo = 2 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
         $Resultado = Consultar($Con,$SQL);
         //Procesar resultados
 
@@ -63,10 +83,19 @@
         for($F=0;$F<$n;$F++)
         {
           $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
-          print("<div class='swiper-slide slide2'><img src='paquetes_img/".$Fila[0]."'><h3>".$Fila[1].$Fila[5]."</h3><h1>".$Fila[2]." Saliendo de ".$Fila[3]."</h1><h5>Precio por persona</h5><h4>MXN$</h4><h2>".$Fila[4]."</h2><br><form class='addCont'method='POST' action='ventasResort.php'>
-          <input type='hidden'name='idVenta' value='".$Fila[5]."' required><input type='hidden'name='claveVenta' value='".$Fila[6]."' required>
-          <input class='verMas' type='submit' value='Ver mas'>
-        </form></div>");
+          print("
+            <div class='swiper-slide slide2'>
+              <img src='paquetes_img/".$Fila[0]."'>
+              <h3>".$Fila[1].$Fila[5]."</h3>
+              <h1>Viaja a ".$Fila[2]." saliendo de ".$Fila[3]."</h1>
+              <h5>Precio por persona</h5>
+              <h4>MXN$</h4><h2>".$Fila[4]."</h2>
+              <form class='addCont'method='POST' action='ventasResort.php'>
+                <input type='hidden'name='idVenta' value='".$Fila[5]."' required>
+                <input type='hidden'name='claveVenta' value='".$Fila[6]."' required>
+                <input class='verMas' type='submit' value='Ver mas'>
+              </form>
+            </div>");
         };
         
         Cerrar($Con);
@@ -120,7 +149,7 @@
     });
     var swiper = new Swiper('.slideshow2', {
       slidesPerView: 3,
-      spaceBetween: 50,
+      spaceBetween: 30,
       shadow: true,
       scrollbar: {
         el: '.swiper-scrollbar',

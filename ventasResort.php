@@ -97,25 +97,27 @@
 						<input type='number' onclick='calcular();' name='mDato' value='0' id='mDato' min='0' max='100' maxlength='3' class='inputForm small' required><br>
 						<label>Edades menores</label>
 						<input type='text' placeholder='Ejemplo: 8, 12' maxlength='1'name='edadmenoresDato' class='inputForm short' required><br>
+		      		</div>
+		      		<div class ='columnaV'>
 						<input type='hidden'  name='pDato' value='".$Fila[4]."' id='pDato' required><br>
-						<label>Precio:  <p> MXN$  <p id='precio_finalDato'></p>.00</p></label>
-						<input type='hidden'  name='precio_finalDato' id='precio_finalDato' required><br>
+						<label>Precio:  <p> MXN$  <p id='precio_finalDato'></p>.00</p></label>	
 							<script>
 								function calcular(){
 									var adulto=parseInt(document.getElementById('aDato').value);
 									var menor=parseInt(document.getElementById('mDato').value);
 									var precioU=parseInt(document.getElementById('pDato').value);
 									document.getElementById('precio_finalDato').innerHTML=(adulto+menor)*precioU;
+									document.getElementById('pagoDato').value= (adulto+menor)*precioU;
 								}
 								window.onload = calcular()
-							</script>
+							</script>			
+						<input type='hidden' name='pagoDato' id='pagoDato' value='0' required>			
+						<input type='hidden' name='id_paqueteDato' value='".$Fila[5]."' required>
+						<input type='hidden' name='clave_paqueteDato' value='".$Fila[6]."' required>
+						<input type='hidden' name='precioDato' value='".$Fila[4]."' required><br>
 
-							<input type='hidden' name='id_paqueteDato' value='".$Fila[5]."' required><br>
-							<input type='hidden' name='clave_paqueteDato' value='".$Fila[6]."' required><br>
-							<input type='hidden' name='precioDato' value='".$Fila[4]."' required><br>
 
-
-						<input type='submit' name='submit' value='Comprar' class='enviarColumnaD short'>
+						<input type='submit' name='submit' value='Comprar'class='enviarColumnaD short'>
 		      		</div>
 	      		</div>
 	      		

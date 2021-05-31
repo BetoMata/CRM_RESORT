@@ -35,7 +35,7 @@
 			$mDato=$_POST['mDato'];
 			$edadmenoresDato=$_POST['edadmenoresDato'];
 			$precioDato=$_POST['precioDato'];
-			$precio_finalDato=$_POST['precio_finalDato'];
+			$precio_finalDato=$_POST['pagoDato'];
 			
 			Print("Gracias por realizar tu compra!"."<br>");
 

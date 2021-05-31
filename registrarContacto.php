@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   	<meta charset="utf-8">
-	<title>Contacto</title>
+	<title>Registro Contacto</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="css/swiper.min.css">
 	<link rel="stylesheet" href="css/estilos.css">
@@ -22,34 +22,32 @@
       	</nav>
   	</header>
 	<div class="mainContacto">
-		<div id="contLeft">
-			<ul>
-				<li><img src="img/contacto1.PNG" alt=""></li>
-				<li><img src="img/contacto2.PNG" alt=""></li>
-				<li><img src="img/contacto3.PNG" alt=""></li>
-				<li><img src="img/contacto4.PNG" alt=""></li>
-				<li><img src="img/contacto5.PNG" alt=""></li>
-				<li><img src="img/contacto6.PNG" alt=""></li>
-				<li><img src="img/contacto7.PNG" alt=""></li>
-			</ul>
-		</div>
-		<div id="contRight">
-			<h2>Contacto</h2>
-			<img src="img/logo.PNG" >
-			<form class="addCont"method="POST" action="registrarContacto.php">
-				<label >Nombre</label><br>
-				<input type="text" placeholder="Ejemplo: Juan" name="nombreDato" id="nombre" class="inputForm short" required><br>
-				<label>Apellido</label><br>
-				<input type="text" placeholder="Ejemplo: Perez" name="apellidoDato" id="nombre" class="inputForm short" required><br>
-				<label>Teléfono</label><br>
-				<input type="tel" name="numeroDato" placeholder="123 450 6789" 
-				pattern="[0-9]{3} [0-9]{3} [0-9]{4}" class="inputForm short" required><br>
-				<label>Correo</label><br>
-				<input type="email" placeholder="ejemplo@correo.com" name="correoDato" class="inputForm large" id="correo" required><br>
-				<input type="submit" value="Registrarme" class="enviarColumna">
-			</form>
-		</div>
+
+        <?php
+	        $nombreDato=$_POST['nombreDato'];
+	        $apellidoDato=$_POST['apellidoDato'];
+	        $correoDato=$_POST['correoDato'];
+	        $numeroDato=$_POST['numeroDato'];
+
+	        $numeroDato = str_replace(" ", "", $numeroDato); //Eliminamos los espacios en blanco
+
+	        Print("Recibiras más información muy pronto."."<br>");
+            include("ControladorBD.php");
+
+	        $Con = conectar();
+	        $SQL = "INSERT INTO leads VALUES (default, '$nombreDato','$apellidoDato', '$correoDato', '$numeroDato');";
+	        $Cons = consultar($Con,$SQL);
+	        cerrar($Con);
+        ?>
+
+	    <script>
+		    function alert(){
+			    alert("Tus datos se han guardado correctamente!");
+		    }
+	    </script>
+
 	</div>
+
 
 	<footer id="contacto">
 	    <div class="partFooter">

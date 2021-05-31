@@ -69,16 +69,14 @@
 	      			</div>
 	      		</div> 
 	      	</div>
-	      	<form class='formVenta'>
+	      	<form method='POST' action='compraPaquete.php' class='formVenta'>
 		      	<div class='headerVenta'>
 		      		<hr><h1>Adquiere tu paquete ".$Fila[6]."</h1><hr>
 		      	</div>
 	      		<div id='contentFormVenta'>
 					<div class='columnaV'>
 		      			<label>Destino: ".$Fila[2]."</label><br>
-						<input type='hidden' name='destinoDato' required><br>
 						<label>Salida: ".$Fila[3]."</label><br>
-						<input type='hidden' name='salidaDato' required><br>
 						<label>Fecha de Llegada</label><br>
 						<input type='date' name='fechallegadaDato' class='inputForm medium' required><br>	
 						<label>Fecha de Salida</label><br>
@@ -88,7 +86,7 @@
 						<label>Nombre Completo</label><br>
 		      			<input type='text' placeholder='Ejemplo: Juan Pérez' name='nombreDato' id='nombre' class='inputForm large' required><br>
 						<label>Tu correo electrónico</label><br>
-						<input type='email' placeholder='ejemplo@correo.com' name='correoDato' min='0' max='1' maxlength='1' class='inputForm large' required><br>
+						<input type='email' placeholder='ejemplo@correo.com' name='correoDato' class='inputForm large' required><br>
 						<label>Tel / Whatsapp</label><br>
 						<input type='tel' name='telDato' placeholder='123 450 6789' pattern='[0-9]{3} [0-9]{3} [0-9]{4}'' class='inputForm short' required><br>
 		      		</div>
@@ -100,17 +98,23 @@
 						<label>Edades menores</label>
 						<input type='text' placeholder='Ejemplo: 8, 12' maxlength='1'name='edadmenoresDato' class='inputForm short' required><br>
 						<input type='hidden'  name='pDato' value='".$Fila[4]."' id='pDato' required><br>
-						<label>Precio:  <p> MXN$  <p id='precioR'></p>.00</p></label>
-						<input type='hidden'  name='pfinalDato' id='precioR' required><br>
+						<label>Precio:  <p> MXN$  <p id='precio_finalDato'></p>.00</p></label>
+						<input type='hidden'  name='precio_finalDato' id='precio_finalDato' required><br>
 							<script>
 								function calcular(){
 									var adulto=parseInt(document.getElementById('aDato').value);
 									var menor=parseInt(document.getElementById('mDato').value);
 									var precioU=parseInt(document.getElementById('pDato').value);
-									document.getElementById('precioR').innerHTML=(adulto+menor)*precioU;
+									document.getElementById('precio_finalDato').innerHTML=(adulto+menor)*precioU;
 								}
 								window.onload = calcular()
 							</script>
+
+							<input type='hidden' name='id_paqueteDato' value='".$Fila[5]."' required><br>
+							<input type='hidden' name='clave_paqueteDato' value='".$Fila[6]."' required><br>
+							<input type='hidden' name='precioDato' value='".$Fila[4]."' required><br>
+
+
 						<input type='submit' name='submit' value='Comprar' class='enviarColumnaD short'>
 		      		</div>
 	      		</div>

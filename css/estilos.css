@@ -207,12 +207,14 @@ header img{
 /* Page Venta */
 .mainVenta{
     width: 900px;
-    height: 600px;
-    background: blue;
+    height: 1000px;
     margin-top: 10px;
     margin-bottom: 30px;
     margin-right: auto;
     margin-left: auto;
+    display: block;
+}
+.contentVenta{
     display: block;
 }
 .contLeftVenta{
@@ -220,11 +222,69 @@ header img{
     height: 520px;
     float: left;
     overflow: hidden;
-    background: white;
+    display: block;
 }
 .contLeftVenta img{
     height: 510px;
     margin-left:-98px;
+}
+#contRightVenta{
+    width: 380px;
+    margin-right:10px;
+    margin-bottom:5px;
+    float: right;
+}
+#contRightVenta h2,h4,h5{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+#contRightVenta h2{
+    font-size: 22px;
+    color: black;
+}
+#contRightVenta h3{
+    color: black;
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+#contRightVenta h4{
+    font-size: 14px;
+    color: black;
+}
+#contRightVenta h5{
+    font-size: 13px;
+    padding-left: 15px;
+    color: #595959;
+ }
+#contRightVenta form{
+    margin-top: 20px;
+}
+.columnaForm{
+    width: 50%;
+    display: block;
+    float: left;
+}
+.formVenta{
+    width: 100%;
+    display: block;
+    float: left;
+}
+#contentFormVenta{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background:#DBDBDB;
+}
+.columnaV{
+    width: 28%;
+}
+.columnaV p{
+    display: inline-block;
+    font-size: 30px;
+    color: black;
 }
 /* Page Usuarios */
 .mainRUsuarios{
@@ -357,9 +417,11 @@ header img{
     color: white; 
     font-size: 14px;
 }
-.enviarColumna{
+.enviarColumnaI{
     display: block;
     cursor: pointer;
+    margin-left: 10px;
+    float: left;
     margin-top: 25px;
     height: 25px;
     border-radius: 5px;
@@ -367,8 +429,21 @@ header img{
     background: linear-gradient(0deg, rgba(5,72,170,1) 1%, rgba(46,117,182,1) 100%);
     color: white; 
     font-size: 14px;
-    margin-left: 5px;
 }
+.enviarColumnaD{
+    display: block;
+    cursor: pointer;
+    margin-right: 15px;
+    float: right;
+    margin-top: 5px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px;
+    background: linear-gradient(0deg, rgba(5,72,170,1) 1%, rgba(46,117,182,1) 100%);
+    color: white; 
+    font-size: 14px;
+}
+
 .Corto{padding:2px 30px 25px 30px;}
 .Largo{width: 135px;}
 .enviar:active{transform: scale(0.95);}
@@ -400,8 +475,9 @@ header img{
     border: 1px solid #e4e4ec;
 }
 .large{width: 150px;}
-
+.medium{width: 115px;}
 .short{width: 100px;}
+.small{width: 30px;}
 
 
 /* Pied de pagina */

@@ -37,66 +37,86 @@
         print("
         <div class='mainVenta'>
 	      	<div class='headerVenta'>
-	      		<hr><h3>".$Fila[1].$Fila[5]."</h3><hr>
+	      		<hr><h1>Descripción del paquete ".$Fila[6]."</h1><hr>
 	      	</div>
-	      	<div class='contentVenta'>
+	      	<div class='contentVenta'>	      		
 	      		<div class='contLeftVenta'>
 	      			<img src='paquetes_img/".$Fila[0]."'>
 	      		</div>
-	      		<div class='contRightVenta'>
-	      			
+	      		<div id='contRightVenta'>
+	      			<h2>".$Fila[2]." todo incluido - 4 dias</h2>
+	      			<h4>Desde $ ".$Fila[4].".00</h4>
+	      			<h4>Recorrido: ".$Fila[3]." - ".$Fila[2]." - ".$Fila[3]."</h4>
+	      			<div class='columnaForm'>
+	      					<h3>Incluye:</h3>
+	      					<h4>Vuelo Redondo:</h4>
+	      					<h5>".$Fila[3]." - ".$Fila[2]." - ".$Fila[3]."</h5>
+	      					<h4>Traslados:</h4>
+	      					<h5>Aeropuerto - Hotel - Aeropuerto</h5>
+	      					<h4>Equipaje documentado:</h4>
+	      					<h5>Una maleta de 25kg y equipaje de mano de 10kg por pasajero</h5>
+	      					<h4>Hotel:</h4>
+	      					<h5>Todo incluido en el hotel de su elección. Precio por persona y en habitación doble.</h5>
+	      					<h4>Otros:</h4>
+	      					<h5>Impuestos y propinas</h5>
+	      			</div>
+	      			<div class='columnaForm'>
+	      				<h3>No incluye:</h3>
+	      				<h4>Tours</h4>
+	      				<h4>Gastos personales</h4>
+	      				<h3>Duración del viaje:</h3>
+	      				<h4>4 dias y 4 noches</h4>
+	      			</div>
 	      		</div>
 	      	</div>
+	      	<form class='formVenta'>
+		      	<div class='headerVenta'>
+		      		<hr><h1>Adquiere tu paquete ".$Fila[6]."</h1><hr>
+		      	</div>
+	      		<div id='contentFormVenta'>
+					<div class='columnaV'>
+		      			<label>Destino: ".$Fila[2]."</label><br>
+						<input type='hidden' name='destinoDato' required><br>
+						<label>Salida: ".$Fila[3]."</label><br>
+						<input type='hidden' name='salidaDato' required><br>
+						<label>Fecha de Llegada</label><br>
+						<input type='date' name='fechallegadaDato' class='inputForm medium' required><br>	
+						<label>Fecha de Salida</label><br>
+						<input type='date' name='fechasalidaDato' class='inputForm medium' required><br>
+		      		</div>
+		      		<div class ='columnaV'>
+						<label>Nombre Completo</label><br>
+		      			<input type='text' placeholder='Ejemplo: Juan Pérez' name='nombreDato' id='nombre' class='inputForm large' required><br>
+						<label>Tu correo electrónico</label><br>
+						<input type='email' placeholder='ejemplo@correo.com' name='correoDato' min='0' max='1' maxlength='1' class='inputForm large' required><br>
+						<label>Tel / Whatsapp</label><br>
+						<input type='tel' name='telDato' placeholder='123 450 6789' pattern='[0-9]{3} [0-9]{3} [0-9]{4}'' class='inputForm short' required><br>
+		      		</div>
+		      		<div class ='columnaV'>
+						<label># Adultos</label>
+						<input type='number' onclick='calcular();' name='aDato' value='1' id='aDato' min='1' max='100' maxlength='3' class='inputForm small' required><br>
+						<label># Menores</label>
+						<input type='number' onclick='calcular();' name='mDato' value='0' id='mDato' min='0' max='100' maxlength='3' class='inputForm small' required><br>
+						<label>Edades menores</label>
+						<input type='text' placeholder='Ejemplo: 8, 12' maxlength='1'name='edadmenoresDato' class='inputForm short' required><br>
+						<input type='hidden'  name='pDato' value='".$Fila[4]."' id='pDato' required><br>
+						<label>Precio:  <p> MXN$  <p id='precioR'></p>.00</p></label>
+						<input type='hidden'  name='pfinalDato' id='precioR' required><br>
+							<script>
+								function calcular(){
+									var adulto=parseInt(document.getElementById('aDato').value);
+									var menor=parseInt(document.getElementById('mDato').value);
+									var precioU=parseInt(document.getElementById('pDato').value);
+									document.getElementById('precioR').innerHTML=(adulto+menor)*precioU;
+								}
+								window.onload = calcular()
+							</script>
+						<input type='submit' name='submit' value='Comprar' class='enviarColumnaD short'>
+		      		</div>
+	      		</div>
+	      		
+			</form>
       	</div>");
-			print("<br>");
-			print(">");
-         	print($Fila[5]);
-         	print("/");
-			print($Fila[6]);
-			print("<");
-			print("<br>");
-			print("<div ><h3>".$Fila[1].$Fila[5]."</h3></div>");
-
-			print("
-			<form>
-				<label>Destino: ".$Fila[2]."</label><br>
-				<input type='hidden' name='destinoDato' maxlength='250' class='inputL' required><br>
-				<label>Salida: ".$Fila[3]."</label><br>
-				<input type='hidden' name='salidaDato' maxlength='250' class='inputL' required><br>
-				<label>Fecha de Llegada</label><br>
-				<input type='date' name='fechallegadaDato' class='inputL' required><br>	
-				<label>Fecha de Salida</label><br>
-				<input type='date' name='fechasalidaDato' class='inputL' required><br>
-				<label># Adultos</label><br>
-				<input type='number' onclick='calcular();' name='aDato' value='1' id='aDato' min='1' max='100' maxlength='3' class='inputCh' required><br>
-				<label># Menores</label><br>
-				<input type='number' onclick='calcular();' name='mDato' value='0' id='mDato' min='0' max='100' maxlength='3' class='inputCh' required><br>
-				
-				<label>Edades menores</label><br>
-				<input type='text' placeholder='Ejemplo: 8, 12' maxlength='1'name='edadmenoresDato' class='inputCh' required><br>
-				<label>Nombre</label><br>
-				<input type='text' placeholder='Ejemplo: Juan Pérez' name='nombreDato' id='nombre' class='inputForm short' required><br>
-				<label>Tu correo electrónico</label><br>
-				<input type='email' name='correoDato' min='0' max='1' maxlength='1' class='inputCh' required><br>
-				<label>Tel / Whatsapp</label><br>
-				<input type='number' name='telDato' min='0' max='999' maxlength='3' class='inputCh' required><br>
-				<input type='hidden'  name='pDato' value='".$Fila[4]."' id='pDato' required><br>
-
-				<label>Precio:<h4>MXN$ <h2 id='precioR'></h2></h4></label>
-				<input type='hidden'  name='pfinalDato' id='precioR' required><br>
-					<script>
-						function calcular(){
-							var adulto=parseInt(document.getElementById('aDato').value);
-							var menor=parseInt(document.getElementById('mDato').value);
-							var precioU=parseInt(document.getElementById('pDato').value);
-							document.getElementById('precioR').innerHTML=(adulto+menor)*precioU;
-						}
-						window.onload = calcular()
-					</script>
-				<input type='submit' name='submit' value='Guardar' class='btnEnviar'>
-				</form>
-			");
-
         };
         Cerrar($Con);
       ?>

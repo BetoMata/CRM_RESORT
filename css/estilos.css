@@ -103,7 +103,7 @@ header img{
 }
 .slide2{ 
     width: 200px;
-    height: 350px;
+    height: 450px;
     box-shadow: 0px 5px 14px 8px rgba(0,0,0,.5);
     border-radius: 10px;
 }
@@ -199,6 +199,30 @@ header img{
     color: #fff;
     text-decoration: none;
     font-weight: bold; 
+}
+/* Page Venta */
+.mainVenta{
+    width: 95%;
+    height: 600px;
+    /*background: linear-gradient(90deg, rgba(56,96,159,1) 0%, rgba(26,151,211,1) 47%, rgba(0,198,255,1) 100%);
+    */margin-top: 120px;
+    margin-bottom: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+.contLeftVenta{
+    width: 55%;
+    height: 520px;
+    float: left;
+    overflow: hidden;
+}
+.contLeftVenta img{
+    margin-top: 0px;
+    padding-right:0px;
+    width: 900px;
+    height: 520px;
+    display: flex;
 }
 /* Page Contacto */
 .mainContacto{

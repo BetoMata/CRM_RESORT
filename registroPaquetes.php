@@ -47,7 +47,7 @@
           <label>Paquete</label><br>
           <input type="text" placeholder="Ejemplo: A" maxlength="1"name="PAQUETE" class="inputCh" required><br>
           <label>Precio</label><br>
-          <input type="text" placeholder="Ejemplo: 9000" maxlength="9" name="PRECIO" class="inputCh" required><br>
+          <input type="number" maxlength="9" name="PRECIO" class="inputCh" required><br>
           <label>Cantidad de personas</label><br>
           <input type="number"  name="PERSONAS" min="1" max="999" maxlength="3" required><br>
           <label>Disponibilidad</label><br>

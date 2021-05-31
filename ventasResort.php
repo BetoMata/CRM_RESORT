@@ -67,7 +67,7 @@
 	      				<h3>Duración del viaje:</h3>
 	      				<h4>4 dias y 4 noches</h4>
 	      			</div>
-	      		</div>
+	      		</div> 
 	      	</div>
 	      	<form class='formVenta'>
 		      	<div class='headerVenta'>

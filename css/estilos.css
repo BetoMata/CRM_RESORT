@@ -2,13 +2,16 @@
     font-family: Segoe UI Light;
 }
 
-#Login{background:  #3fc7fb;margin: 0;
+#LoginC{margin: 0;
     padding: 0;}
 #Catalogo{margin: 0;
     padding: 0;}
 #Contacto{margin: 0;
     padding: 0;/* Page Login background:  #3fc7fb;*/}
-
+#rClientes{margin: 0;
+    padding: 0;}
+#rUsuarios{margin: 0;
+    padding: 0;}
 /* header */
 .menu ul{
     height: 60px;
@@ -17,12 +20,13 @@
     padding: 0;
     display: flex;
     justify-content: center;
+    margin-right: 80px;
+
 }
 .menu a:hover{background: rgba(0,0,0,0.3);}
 .menu li a{
     margin-top: 5px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
     content: center;
     display: block;
     padding: 15px 15px;
@@ -35,19 +39,26 @@ header{
     height: 60px;
     position: relative;
 }
-
 header img{
     margin-top: 5px;
     height: 50px;
     float: left;
     margin-left:5px;
-    cursor: pointer; 
+    cursor: pointer;
+    display: flex;
 }
 /* Page Catalogo */
-
+.mainCatalogo{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    width: 900px;
+    display: block;
+}
+.mainCatalogo h1{padding-left: 50px;}
 /* slideshow Principal */
 .slideshow1 {
-    width: 80%;
+    width: 100%;
 }
 .wrapper1 {
     margin-top: 45px;
@@ -61,12 +72,8 @@ header img{
     box-shadow: 0px 5px 14px 8px rgba(0,0,0,.5);
     border-radius: 10px;
 }
-
 /* slideshow Principal  Descripcion*/
-
-
 .sb-description {
-
     border-radius: 10px;
     padding: 10px;
     bottom: 5px;
@@ -85,13 +92,11 @@ header img{
 .sb-description:hover {opacity: 1;background: linear-gradient(299deg, rgba(255,224,165,0.96) 0%, rgba(19,199,255,0.7) 100%);}
 .sb-description h1 {color: #fff;font-size: 20px;margin-top: 0px;}
 .sb-description p {font-size: 13px; font-weight: bold;}
-
-
 /* slideshow Secundario */
 .slideshow2 {
     margin: auto;
     display: block;
-    width: 900px;
+    width: 800px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 15px;
@@ -102,12 +107,11 @@ header img{
     margin-bottom: 15px;
 }
 .slide2{ 
-    width: 200px;
-    height: 450px;
+    width: 160px;
+    height: 430px;
     box-shadow: 0px 5px 14px 8px rgba(0,0,0,.5);
     border-radius: 10px;
 }
-
 .slide2 img{
     width: 100%;
     margin: auto;
@@ -146,12 +150,12 @@ header img{
     font-size: 18px;
     display: inline;
 }
-
 /* Page Login */
 .mainLogin{
     margin-right: auto;
     margin-left: auto;
     margin-top: 100px;
+    margin-bottom: 130px;
     width: 700px;
     height: 400px;
     background: linear-gradient(90deg, rgba(56,96,159,1) 0%, rgba(26,151,211,1) 47%, rgba(0,198,255,1) 100%);
@@ -202,11 +206,11 @@ header img{
 }
 /* Page Venta */
 .mainVenta{
-    width: 95%;
+    width: 900px;
     height: 600px;
-    /*background: linear-gradient(90deg, rgba(56,96,159,1) 0%, rgba(26,151,211,1) 47%, rgba(0,198,255,1) 100%);
-    */margin-top: 120px;
-    margin-bottom: 80px;
+    background: blue;
+    margin-top: 10px;
+    margin-bottom: 30px;
     margin-right: auto;
     margin-left: auto;
     display: block;
@@ -216,13 +220,64 @@ header img{
     height: 520px;
     float: left;
     overflow: hidden;
+    background: white;
 }
 .contLeftVenta img{
-    margin-top: 0px;
-    padding-right:0px;
-    width: 900px;
-    height: 520px;
-    display: flex;
+    height: 510px;
+    margin-left:-98px;
+}
+/* Page Usuarios */
+.mainRUsuarios{
+    width: 825px;
+    height: 540px;
+    background: linear-gradient(90deg, rgba(56,96,159,1) 0%, rgba(26,151,211,1) 47%, rgba(0,198,255,1) 100%);
+    border-radius:8px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+/* Page Clientes */
+.mainRClientes{
+    width: 825px;
+    height: 540px;
+    background: linear-gradient(90deg, rgba(56,96,159,1) 0%, rgba(26,151,211,1) 47%, rgba(0,198,255,1) 100%);
+    border-radius:8px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+#contRightDoble{
+    width: 380px;
+    margin-right:20px;
+    margin-top: 45px;
+    margin-bottom:5px;
+    float: right;
+    align-items: center;
+    align-content: center;
+}
+#contRightDoble h2{
+    margin-top: 30px;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+}
+#contRightDoble img{
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+#contRightDoble form{
+    margin-top: 20px;
+}
+.columnaForm{
+    width: 50%;
+    display: block;
+    float: left;
 }
 /* Page Contacto */
 .mainContacto{
@@ -264,8 +319,7 @@ header img{
     60%{margin-left: -1540px;}70%{margin-left: -1540px;}
     75%{margin-left: -1925px;}85%{margin-left: -1925px;}
     95%{margin-left: -2310px;}100%{margin-left: -2310px;}
-}
-#contRight{
+}#contRight{
     width: 250px;
     margin-right:20px;
     margin-top: auto;
@@ -303,6 +357,18 @@ header img{
     color: white; 
     font-size: 14px;
 }
+.enviarColumna{
+    display: block;
+    cursor: pointer;
+    margin-top: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px;
+    background: linear-gradient(0deg, rgba(5,72,170,1) 1%, rgba(46,117,182,1) 100%);
+    color: white; 
+    font-size: 14px;
+    margin-left: 5px;
+}
 .Corto{padding:2px 30px 25px 30px;}
 .Largo{width: 135px;}
 .enviar:active{transform: scale(0.95);}
@@ -336,3 +402,51 @@ header img{
 .large{width: 150px;}
 
 .short{width: 100px;}
+
+
+/* Pied de pagina */
+
+footer {
+    margin-top: 10px;
+    padding-top:20px;
+    padding-bottom:40px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+#contacto{
+    background: linear-gradient(90deg, rgba(56,96,159,1) 0%, rgba(26,151,211,1) 47%, rgba(0,198,255,1) 100%);
+    height: 100px;
+}
+.partFooter {
+    width: 20%;
+    text-align: center;
+    height: 80px
+}
+.partFooter h4 {
+    margin-top: 0;
+    margin-bottom: 7px;
+    color: #f2f2f2;
+    font-size: 20px;
+}
+.partFooter a {
+    margin-top: 0;
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+.partFooter img {
+    height: 60px;
+}
+.social-media a {
+    font-size: 20px;
+    display: inline-block;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+}

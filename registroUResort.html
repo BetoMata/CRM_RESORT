@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  	<meta charset="utf-8">
+	<title>Sign Up Resort</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body id="rUsuarios">
+	<a name="Inicio"></a>
+	<header>
+		<img src="img/logo.png">
+		<nav class="menu">
+		    <ul>
+		        <li><a href="#svs">Inicio</a></li>
+		        <li><a href="#hatchback">Reservaciones</a></li>
+		        <li><a href="#coupes">Mis Viajes</a></li>
+		        <li><a href="contactoResort.html">Contacto</a></li>
+		        <li><a href="productos.html">Nosotros</a></li>
+		    </ul>
+		</nav>
+	</header>
+		<div class="mainRUsuarios">
+			<div id="contLeft">
+				<ul>
+					<li><img src="img/contacto1.PNG" alt=""></li>
+					<li><img src="img/contacto2.PNG" alt=""></li>
+					<li><img src="img/contacto3.PNG" alt=""></li>
+					<li><img src="img/contacto4.PNG" alt=""></li>
+					<li><img src="img/contacto5.PNG" alt=""></li>
+					<li><img src="img/contacto6.PNG" alt=""></li>
+					<li><img src="img/contacto7.PNG" alt=""></li>
+				</ul>
+			</div>
+			<div id="contRightDoble">
+				<h2>Crea una cuenta</h2>
+				<img src="img/logo.PNG" >
+				<form class="addCont"method="POST" action="registrarCliente.php">
+					<div class="columnaForm">
+						<label >Nombre</label><br>
+						<input type="text" placeholder="Ejemplo: Juan" name="nombreDato" id="nombre" class="inputForm short" required><br>
+						<label>Apellido</label><br>
+						<input type="text" placeholder="Ejemplo: Perez" name="apellidoDato" id="nombre" class="inputForm short" required><br>
+						<label>Teléfono</label><br>
+						<input type="tel" name="numeroDato" placeholder="123 450 6789" 
+						pattern="[0-9]{3} [0-9]{3} [0-9]{4}" class="inputForm short" required><br>
+						<label>Correo</label><br>
+						<input type="email" placeholder="ejemplo@correo.com" name="correoDato" class="inputForm large" id="correo" required><br>
+					</div>
+					<div class="columnaForm">
+	                    <label>Username</label><br>
+						<input type="text" placeholder="Ejemplo: juan12" name="usernameDato" id="numero" class="inputForm short" required><br>
+	                    <label>Contraseña</label><br>
+						<input type="password" placeholder="Contraseña" name="claveDato" id="numero" class="inputForm short" required><br>
+						<label>Confirma la Contraseña</label><br>
+						<input type="password" placeholder="Contraseña" name="validaClave" class="inputForm short" id="correo" required><br>
+						<input class="enviarColumna short" type="submit" value="Crear" id="guardar">
+					</div> 
+				</form>
+			</div>
+		</div>
+	<footer id="contacto">
+		<div class="partFooter">
+		    <img src="img/logo.png" alt="">
+		</div>
+		<div class="partFooter">
+		    <h4>Hotel & Resort</h4>
+		    <a href="login.html">Inicio</a>
+		</div>
+		<div class="partFooter">
+		    <h4>Acerca de</h4>
+		    <a href="about.html">Hotel & Resort</a>
+		</div>
+		<div class="partFooter">
+		    <h4>Redes sociales</h4>
+		    <div class="social-media">
+		        <a href="#">f</a>
+		    </div>
+		</div>
+	</footer>
+	</body>
+</html>

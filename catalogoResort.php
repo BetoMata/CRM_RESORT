@@ -9,123 +9,123 @@
 
 </head>
 <body id="Catalogo">
- <a name="Inicio"></a>
- <header>
-  <img src="img/logo.png">
-  <nav class="menu">
-      <ul>
-        <li><a href="#svs">Inicio</a></li>
-        <li><a href="#sedanes">Seccion X</a></li>
-        <li><a href="#hatchback">Seccion X</a></li>
-        <li><a href="#coupes">Seccion X</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="contactoResort.html">Contacto</a></li>
-      </ul>
-    </nav>
-</header>
-<div class="swiper-container slideshow1">
-    <div class="swiper-wrapper wrapper1">
-      <?php
-        include ('ControladorBD.php');
-        $Con = Conectar();
-        $SQL = 
-        "SELECT I.ruta,P.clave,P.destino,P.salida, P.id_paquete,P.descripcion,P.precio,P.vencimiento 
-          FROM paquetes P, paquetes_img I 
-          WHERE P.tipo = 1 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
-        $Resultado = Consultar($Con,$SQL);
-        //Procesar resultados
+  <a name="Inicio"></a>
+  <header>
+    <img src="img/logo.png">
+    <nav class="menu">
+        <ul>
+          <li><a href="#svs">Inicio</a></li>
+          <li><a href="#hatchback">Reservaciones</a></li>
+          <li><a href="#coupes">Mis Viajes</a></li>
+          <li><a href="contactoResort.html">Contacto</a></li>
+          <li><a href="productos.html">Nosotros</a></li>
+        </ul>
+      </nav>
+  </header>
+  <div class="mainCatalogo">
+    <!-- SLIDESHOW PRINCIPAL-->
+    <div class="swiper-container slideshow1">
+      <div class="swiper-wrapper wrapper1">
+        <?php
+          include ('ControladorBD.php');
+          $Con = Conectar();
+          $SQL = 
+          "SELECT I.ruta,P.clave,P.destino,P.salida, P.id_paquete,P.descripcion,P.precio,P.vencimiento 
+            FROM paquetes P, paquetes_img I 
+            WHERE P.tipo = 1 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
+          $Resultado = Consultar($Con,$SQL);
+          //Procesar resultados
 
-        $n = mysqli_num_rows($Resultado); //Obten el numero de filas de  una relac.
+          $n = mysqli_num_rows($Resultado); //Obten el numero de filas de  una relac.
 
-        for($F=0;$F<$n;$F++)
-        {
-          $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
+          for($F=0;$F<$n;$F++)
+          {
+            $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
 
-          setlocale(LC_TIME, 'spanish');
-          $inicio = strftime("%d de %B del %Y", strtotime($Fila[7]));
-          print("
-            <div class='swiper-slide slide1' style='background-image:url(paquetes_img/".$Fila[0].")'>
-              <div class='sb-description'>
-                <h1>Viaja a ".$Fila[2]." saliendo de ".$Fila[3]."</h1>
-                <p>Disfruta de unas fabulosas vacaciones por 3 dias en ".$Fila[2]." con gastos de ".$Fila[5]." incluidos. Disponible hasta el ".$inicio."</p><br>
-                <form class='addCont'method='POST' action='ventasResort.php'>
-                  <input type='hidden'name='idVenta' value='".$Fila[4]."' required>
-                  <input type='hidden'name='claveVenta' value='".$Fila[1]."' required>
-                  <input class='verMas' type='submit' value='Ver mas'>
-                </form>
-              </div>
-            </div>");
-        };
-        
-        Cerrar($Con);
+            setlocale(LC_TIME, 'spanish');
+            $inicio = strftime("%d de %B del %Y", strtotime($Fila[7]));
+            print("
+              <div class='swiper-slide slide1' style='background-image:url(paquetes_img/".$Fila[0].")'>
+                <div class='sb-description'>
+                  <h1>Viaja a ".$Fila[2]." saliendo de ".$Fila[3]."</h1>
+                  <p>Disfruta de unas fabulosas vacaciones por 3 dias en ".$Fila[2]." con gastos de ".$Fila[5]." incluidos. Disponible hasta el ".$inicio."</p><br>
+                  <form class='addCont'method='POST' action='ventasResort.php'>
+                    <input type='hidden'name='idVenta' value='".$Fila[4]."' required>
+                    <input type='hidden'name='claveVenta' value='".$Fila[1]."' required>
+                    <input class='verMas' type='submit' value='Ver mas'>
+                  </form>
+                </div>
+              </div>");
+          };
+          
+          Cerrar($Con);
 
-      ?>
+        ?>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-</div>
-<hr>
-<h1>Viajes</h1>
-<hr>
-  <div class="swiper-container slideshow2">
-    <div class="swiper-wrapper wrapper2">
-     <?php
-     
-        $Con = Conectar();
-        $SQL = "SELECT I.ruta,P.descripcion,P.destino,P.salida,P.precio, P.id_paquete, P.clave 
-        FROM paquetes P, paquetes_img I 
-        WHERE P.tipo = 2 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
-        $Resultado = Consultar($Con,$SQL);
-        //Procesar resultados
+    <hr>
+    <h1>Viajes</h1>
+    <hr>
+    <!-- SLIDESHOW SECUNDARIO-->
+    <div class="swiper-container slideshow2">
+      <div class="swiper-wrapper wrapper2">
+        <?php
+         
+            $Con = Conectar();
+            $SQL = "SELECT I.ruta,P.descripcion,P.destino,P.salida,P.precio, P.id_paquete, P.clave 
+            FROM paquetes P, paquetes_img I 
+            WHERE P.tipo = 2 AND P.clave = I.clave  AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
+            $Resultado = Consultar($Con,$SQL);
+            //Procesar resultados
 
-        $n = mysqli_num_rows($Resultado); //Obten el numero de filas de  una relac.
+            $n = mysqli_num_rows($Resultado); //Obten el numero de filas de  una relac.
 
-        for($F=0;$F<$n;$F++)
-        {
-          $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
-          print("
-            <div class='swiper-slide slide2'>
-              <img src='paquetes_img/".$Fila[0]."'>
-              <h3>".$Fila[1].$Fila[5]."</h3>
-              <h1>Viaja a ".$Fila[2]." saliendo de ".$Fila[3]."</h1>
-              <h5>Precio por persona</h5>
-              <h4>MXN$</h4><h2>".$Fila[4]."</h2>
-              <form class='addCont'method='POST' action='ventasResort.php'>
-                <input type='hidden'name='idVenta' value='".$Fila[5]."' required>
-                <input type='hidden'name='claveVenta' value='".$Fila[6]."' required>
-                <input class='verMas' type='submit' value='Ver mas'>
-              </form>
-            </div>");
-        };
-        
-        Cerrar($Con);
-      ?>
+            for($F=0;$F<$n;$F++)
+            {
+              $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
+              print("
+                <div class='swiper-slide slide2'>
+                  <img src='paquetes_img/".$Fila[0]."'>
+                  <h3>".$Fila[1].$Fila[5]."</h3>
+                  <h1>Viaja a ".$Fila[2]." saliendo de ".$Fila[3]."</h1>
+                  <h5>Precio por persona</h5>
+                  <h4>MXN$</h4><h2>".$Fila[4]."</h2>
+                  <form class='addCont'method='POST' action='ventasResort.php'>
+                    <input type='hidden'name='idVenta' value='".$Fila[5]."' required>
+                    <input type='hidden'name='claveVenta' value='".$Fila[6]."' required>
+                    <input class='verMas' type='submit' value='Ver mas'>
+                  </form>
+                </div>");
+            };
+            
+            Cerrar($Con);
+        ?>
+      </div>
+      <div class="swiper-scrollbar"></div>
     </div>
-    <div class="swiper-scrollbar"></div>
   </div>
-<footer id="contacto"  class="about" id="servicio">
+  <footer id="contacto">
+    <div class="partFooter">
+      <img src="img/logo.png" alt="">
+    </div>
+    <div class="partFooter">
+      <h4>Hotel & Resort</h4>
+      <a href="login.html">Inicio</a>
+    </div>
+    <div class="partFooter">
+      <h4>Acerca de</h4>
+      <a href="about.html">Hotel & Resort</a>
+    </div>
+    <div class="partFooter">
+        <h4>Redes sociales</h4>
+        <div class="social-media">
+            <a href="#">f</a>
         </div>
-        <div class="partFooter">
-            <img src="img/logosaludB.png" alt="">
-        </div>
-        <div class="partFooter">
-            <h4>Divulga más Salud</h4>
-            <a href="login.html">Salir</a>
-        </div>
-        <div class="partFooter">
-            <h4>Acerca de</h4>
-            <a href="autor.html">Lira</a>
-        </div>
-        <div class="partFooter">
-            <h4>Redes sociales</h4>
-            <div class="social-media">
-                    <a href="https://www.facebook.com/profile.php?id=100006210047550">f</a>
-            </div>
-        </div>
-
-    </footer>
-
+    </div>
+  </footer>
   <script src="js/swiper.min.js"></script>
+    <!-- SCRIPTS DE LOS SLIDESHOW-->
   <script>
     var swiper = new Swiper('.slideshow1', {
       effect: 'coverflow',

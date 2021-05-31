@@ -8,20 +8,19 @@
 	<link rel="stylesheet" href="css/estilos.css">
 </head>
 	<body id="Contacto">
-		<a href="catalogoResort.php"></a>
+		<a name="Inicio"></a>
 		<header>
-		  	<img src="img/logo.png">
-		  	<nav class="menu">
-		      	<ul>
-		        	<li><a href="catalogoResort.php">Principal</a></li>
-		        	<li><a href="#sedanes">Seccion X</a></li>
-		        	<li><a href="#hatchback">Seccion X</a></li>
-		        	<li><a href="#coupes">Seccion X</a></li>
-		        	<li><a href="productos.html">Productos</a></li>
-        			<li><a href="contactoResort.html">Contacto</a></li>
-		      	</ul>
-		    </nav>
-		</header>
+		    <img src="img/logo.png">
+		    <nav class="menu">
+		        <ul>
+			        <li><a href="#svs">Inicio</a></li>
+			        <li><a href="#hatchback">Reservaciones</a></li>
+			        <li><a href="#coupes">Mis Viajes</a></li>
+			        <li><a href="contactoResort.html">Contacto</a></li>
+			        <li><a href="productos.html">Nosotros</a></li>
+		        </ul>
+		     </nav>
+		 </header>
 		<?php
 		$idDato=$_POST['idVenta'];
 		$paqueteDato=$_POST['claveVenta'];
@@ -56,7 +55,7 @@
 			print($Fila[6]);
 			print("<");
 			print("<br>");
-			print("<div ><img src='paquetes_img/".$Fila[0]."'><h3>".$Fila[1].$Fila[5]."</h3></div>");
+			print("<div ><h3>".$Fila[1].$Fila[5]."</h3></div>");
 
 			print("
 			<form>
@@ -101,7 +100,25 @@
         };
         Cerrar($Con);
       ?>
-
+    <footer id="contacto">
+		<div class="partFooter">
+		    <img src="img/logo.png" alt="">
+		</div>
+		<div class="partFooter">
+		    <h4>Hotel & Resort</h4>
+		    <a href="login.html">Inicio</a>
+		</div>
+		<div class="partFooter">
+		    <h4>Acerca de</h4>
+		    <a href="about.html">Hotel & Resort</a>
+		</div>
+		<div class="partFooter">
+		    <h4>Redes sociales</h4>
+		    <div class="social-media">
+		        <a href="#">f</a>
+		    </div>
+		</div>
+	</footer>
       
 	</body>
 

@@ -96,7 +96,7 @@
 						<label># Menores</label>
 						<input type='number' onclick='calcular();' name='mDato' value='0' id='mDato' min='0' max='100' maxlength='3' class='inputForm small' required><br>
 						<label>Edades menores</label>
-						<input type='text' placeholder='Ejemplo: 8, 12' maxlength='1'name='edadmenoresDato' class='inputForm short' required><br>
+						<input type='text' placeholder='Ejemplo: 8, 12' name='edadmenoresDato' class='inputForm short' required><br>
 		      		</div>
 		      		<div class ='columnaV'>
 						<input type='hidden'  name='pDato' value='".$Fila[4]."' id='pDato' required><br>

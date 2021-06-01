@@ -37,9 +37,10 @@
           //Procesar resultados
 
           $n = mysqli_num_rows($Resultado); //Obten el numero de filas de  una relac.
-
+          $Suma=0;
           for($F=0;$F<$n;$F++)
           {
+
             $Fila = mysqli_fetch_row($Resultado);// Obt el num de filas de  un vect
 
             setlocale(LC_TIME, 'spanish');
@@ -56,8 +57,9 @@
                   </form>
                 </div>
               </div>");
+            $Suma=$Suma+$Fila[6];
           };
-          
+          print("<input type='hidden' id='sum' value='$Suma'></input>");
           Cerrar($Con);
 
         ?>
@@ -105,6 +107,138 @@
       <div class="swiper-scrollbar"></div>
     </div>
   </div>
+    <style>
+        #chartdiv {
+          width: 900px;
+          height: 500px;
+        }
+        </style>
+    <div id="chartdiv"></div>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var mes=parseInt(document.getElementById('sum').value);
+
+var chart = am4core.create('chartdiv', am4charts.XYChart)
+chart.colors.step = 2;
+
+chart.legend = new am4charts.Legend()
+chart.legend.position = 'top'
+chart.legend.paddingBottom = 20
+chart.legend.labels.template.maxWidth = 95
+
+var xAxis = chart.xAxes.push(new am4charts.CategoryAxis())
+xAxis.dataFields.category = 'category'
+xAxis.renderer.cellStartLocation = 0.1
+xAxis.renderer.cellEndLocation = 0.9
+xAxis.renderer.grid.template.location = 0;
+
+var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
+yAxis.min = 0;
+
+function createSeries(value, name) {
+    var series = chart.series.push(new am4charts.ColumnSeries())
+    series.dataFields.valueY = value
+    series.dataFields.categoryX = 'category'
+    series.name = name
+
+    series.events.on("hidden", arrangeColumns);
+    series.events.on("shown", arrangeColumns);
+
+    var bullet = series.bullets.push(new am4charts.LabelBullet())
+    bullet.interactionsEnabled = false
+    bullet.dy = 30;
+    bullet.label.text = '{valueY}'
+    bullet.label.fill = am4core.color('#ffffff')
+
+    return series;
+}
+
+chart.data = [
+    {
+        category: mes,
+        first: 30,
+        second: 55,
+        third: 400
+    },
+    {
+        category: 'Febrero',
+        first: 30,
+        second: 78,
+        third: 69
+    },
+    {
+        category: 'Marzo',
+        first: 27,
+        second: 40,
+        third: 45
+    },
+    {
+        category: 'Abril',
+        first: 50,
+        second: 33,
+        third: 22
+    }
+]
+
+
+createSeries('first', '2017');
+createSeries('second', '2018');
+createSeries('third', '2019');
+
+function arrangeColumns() {
+
+    var series = chart.series.getIndex(0);
+
+    var w = 1 - xAxis.renderer.cellStartLocation - (1 - xAxis.renderer.cellEndLocation);
+    if (series.dataItems.length > 1) {
+        var x0 = xAxis.getX(series.dataItems.getIndex(0), "categoryX");
+        var x1 = xAxis.getX(series.dataItems.getIndex(1), "categoryX");
+        var delta = ((x1 - x0) / chart.series.length) * w;
+        if (am4core.isNumber(delta)) {
+            var middle = chart.series.length / 2;
+
+            var newIndex = 0;
+            chart.series.each(function(series) {
+                if (!series.isHidden && !series.isHiding) {
+                    series.dummyData = newIndex;
+                    newIndex++;
+                }
+                else {
+                    series.dummyData = chart.series.indexOf(series);
+                }
+            })
+            var visibleCount = newIndex;
+            var newMiddle = visibleCount / 2;
+
+            chart.series.each(function(series) {
+                var trueIndex = chart.series.indexOf(series);
+                var newIndex = series.dummyData;
+
+                var dx = (newIndex - trueIndex + middle - newMiddle) * delta
+
+                series.animate({ property: "dx", to: dx }, series.interpolationDuration, series.interpolationEasing);
+                series.bulletsContainer.animate({ property: "dx", to: dx }, series.interpolationDuration, series.interpolationEasing);
+            })
+        }
+    }
+}
+
+}); // end am4core.ready()
+</script>
+
+
   <footer id="contacto">
     <div class="partFooter">
       <img src="img/logo.png" alt="">

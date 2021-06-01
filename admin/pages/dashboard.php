@@ -1,6 +1,6 @@
 <?php
 
-  include("../../ControladorBD.php");
+  include("ControladorBD.php");
 
   session_start();
 

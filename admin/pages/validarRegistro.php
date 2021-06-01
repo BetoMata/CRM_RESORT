@@ -6,7 +6,7 @@
     $contrasena=$_POST['contrasena'];
     $numero=$_POST['numero'];
 	
-	include("../ControladorBD.php");
+	include("ControladorBD.php");
 
 	$Con = conectar();
 	$SQL = "INSERT INTO usuario VALUES ('$usuario', '$contrasena', '$nombre', '$apellido', '$numero', '$correo, , 'admin');";

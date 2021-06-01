@@ -48,20 +48,21 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="../dashboard.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                Edición 
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="../operaciones/leads/index.html">Leads</a>
+                                    <a class="nav-link" href="../operaciones/paquetes/index.html">Paquetes</a>
+                                    <a class="nav-link" href="../operaciones/ventas/index.html">Ventas</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -72,14 +73,15 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Autenticación 
+                                        Formularios
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="../../../loginClientes.html">Inicio de Sesion</a>
-                                            <a class="nav-link" href="register.html">Registro de Cliente</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                            <a class="nav-link" href="../../../registroCuentas.html">Registro de Cuentas</a>
+                                            <a class="nav-link" href="../../../contactoResort.html">Formulario de Contacto</a>
+                                            <a class="nav-link" href="../../../registroPaquetes.php">Registro de Paquetes</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -89,8 +91,7 @@
                                     <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="../../../catalogoResort.html">Catalogo</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
+                                            <a class="nav-link" href="../../../ventasResort2.php">Venta de Paquete</a>
                                         </nav>
                                     </div>
                                 </nav>
@@ -112,23 +113,6 @@
                     </div>
                 </nav>
             </div>
-
-            <?php 
-                require "conexion.php";
-
-                session_start();
-
-                if ($_POST) {
-
-                    $usuario = $_POST['usuario'];
-                    
-                    $sql = "username FROM usuarios WHERE usuario='$usuario'";
-
-                    $resultado = $mysqli->query($sql);
-                    
-                }
-            ?>
-
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">

@@ -1,5 +1,5 @@
 <?php
-    include("../../ControladorBD.php");
+    include("ControladorBD.php");
 
 	$Con = conectar();
 

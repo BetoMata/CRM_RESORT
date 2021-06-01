@@ -2109,6 +2109,26 @@ textarea.form-control {
   margin-bottom: 1rem;
 }
 
+.card > .form-group{
+  padding:0px 20px;
+  box-sizing: border-box;
+}
+
+.card > .form-group > .btn{
+  margin-bottom: 15px;
+}
+
+.container{
+  min-height: calc(100vh - 67px);
+}
+
+.container > .row.justify-content-center{
+  min-height: calc(100vh - 67px);
+  display:flex;
+  align-items:center
+}
+
+
 .form-text {
   display: block;
   margin-top: 0.25rem;
@@ -2117,8 +2137,9 @@ textarea.form-control {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -5px;
-  margin-left: -5px;
+  padding:15px;
+  padding-bottom: 0px;
+  box-sizing: border-box;
 }
 .form-row > .col,
 .form-row > [class*=col-] {
@@ -4358,6 +4379,7 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  padding-bottom:0px;
 }
 
 .card-title {
@@ -10018,7 +10040,7 @@ body {
 #layoutAuthentication {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 67px);
 }
 #layoutAuthentication #layoutAuthentication_content {
   min-width: 0;

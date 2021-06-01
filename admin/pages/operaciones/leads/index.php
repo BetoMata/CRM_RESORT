@@ -1,7 +1,7 @@
 <?php
-	include_once 'conexion.php';
+	include_once '../conexion.php';
 
-	$sentencia_select=$con->prepare('SELECT *FROM clientes ORDER BY id DESC');
+	$sentencia_select=$con->prepare('SELECT * FROM leads ORDER BY id_lead DESC');
 	$sentencia_select->execute();
 	$resultado=$sentencia_select->fetchAll();
 
@@ -9,7 +9,7 @@
 	if(isset($_POST['btn_buscar'])){
 		$buscar_text=$_POST['buscar'];
 		$select_buscar=$con->prepare('
-			SELECT *FROM clientes WHERE nombre LIKE :campo OR apellidos LIKE :campo;'
+			SELECT * FROM leads WHERE nombre LIKE :campo OR apellido LIKE :campo;'
 		);
 
 		$select_buscar->execute(array(
@@ -26,14 +26,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inicio</title>
-	<link rel="stylesheet" href="css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">
-		<h2>CRUD EN PHP CON MYSQL</h2>
+		<h2>TABLA DE LEADS</h2>
 		<div class="barra__buscador">
 			<form action="" class="formulario" method="post">
-				<input type="text" name="buscar" placeholder="buscar nombre o apellidos" 
+				<input type="text" name="buscar" placeholder="Buscar nombre o apellidos" 
 				value="<?php if(isset($buscar_text)) echo $buscar_text; ?>" class="input__text">
 				<input type="submit" class="btn" name="btn_buscar" value="Buscar">
 				<a href="insert.php" class="btn btn__nuevo">Nuevo</a>
@@ -43,22 +43,20 @@
 			<tr class="head">
 				<td>Id</td>
 				<td>Nombre</td>
-				<td>Apellidos</td>
-				<td>Teléfono</td>
-				<td>Ciudad</td>
+				<td>Apellido</td>
 				<td>Correo</td>
+				<td>Numero</td>
 				<td colspan="2">Acción</td>
 			</tr>
 			<?php foreach($resultado as $fila):?>
 				<tr >
-					<td><?php echo $fila['id']; ?></td>
+					<td><?php echo $fila['id_lead']; ?></td>
 					<td><?php echo $fila['nombre']; ?></td>
-					<td><?php echo $fila['apellidos']; ?></td>
-					<td><?php echo $fila['telefono']; ?></td>
-					<td><?php echo $fila['ciudad']; ?></td>
+					<td><?php echo $fila['apellido']; ?></td>
 					<td><?php echo $fila['correo']; ?></td>
-					<td><a href="update.php?id=<?php echo $fila['id']; ?>"  class="btn__update" >Editar</a></td>
-					<td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
+					<td><?php echo $fila['numero']; ?></td>
+					<td><a href="update.php?id_lead=<?php echo $fila['id_lead']; ?>"  class="btn__update" >Editar</a></td>
+					<td><a href="delete.php?id_lead=<?php echo $fila['id_lead']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 			<?php endforeach ?>
 

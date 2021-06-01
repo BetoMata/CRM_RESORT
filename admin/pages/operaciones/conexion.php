@@ -1,15 +1,14 @@
 <?php
-	$database="crud";
+	$database="vacaciones";
 	$user='root';
 	$password='';
-
-
-try {
 	
-	$con=new PDO('mysql:host=localhost;dbname='.$database,$user,$password);
-
-} catch (PDOException $e) {
-	echo "Error".$e->getMessage();
-}
-
+	try 
+	{
+		$con=new PDO('mysql:host=localhost;dbname='.$database,$user,$password);
+	} 
+	catch (PDOException $e) 
+	{
+		echo "Error".$e->getMessage();
+	}
 ?>

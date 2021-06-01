@@ -1,12 +1,12 @@
 <?php
-	include_once 'conexion.php';
+	include_once '../conexion.php';
 
-	if(isset($_GET['id'])){
-		$id=(int) $_GET['id'];
+	if(isset($_GET['id_lead'])){
+		$id_lead=(int) $_GET['id_lead'];
 
-		$buscar_id=$con->prepare('SELECT * FROM clientes WHERE id=:id LIMIT 1');
+		$buscar_id=$con->prepare('SELECT * FROM leads WHERE id_lead=:id_lead LIMIT 1');
 		$buscar_id->execute(array(
-			':id'=>$id
+			':id_lead'=>$id_lead
 		));
 		$resultado=$buscar_id->fetch();
 	}else{
@@ -15,32 +15,32 @@
 
 
 	if(isset($_POST['guardar'])){
+		$id_lead=$_POST['lead'];
 		$nombre=$_POST['nombre'];
-		$apellidos=$_POST['apellidos'];
-		$telefono=$_POST['telefono'];
-		$ciudad=$_POST['ciudad'];
+		$apellido=$_POST['apellido'];
 		$correo=$_POST['correo'];
-		$id=(int) $_GET['id'];
+		$numero=$_POST['numero'];
+		$id_lead=(int) $_GET['id_lead'];
 
-		if(!empty($nombre) && !empty($apellidos) && !empty($telefono) && !empty($ciudad) && !empty($correo) ){
+		if(!empty($id_lead) && !empty($nombre) && !empty($apellido) && !empty($correo) && !empty($numero) ){
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
 				$consulta_update=$con->prepare(' UPDATE clientes SET  
+					id_lead=:id_lead,
 					nombre=:nombre,
-					apellidos=:apellidos,
-					telefono=:telefono,
-					ciudad=:ciudad,
-					correo=:correo
-					WHERE id=:id;'
+					apellido=:apellido,
+					correo=:correo,
+					numero=:numero
+					WHERE id_lead=:id_lead;'
 				);
 				$consulta_update->execute(array(
+					':id_lead' =>$id_lead,
 					':nombre' =>$nombre,
-					':apellidos' =>$apellidos,
-					':telefono' =>$telefono,
-					':ciudad' =>$ciudad,
+					':apellido' =>$apellido,
 					':correo' =>$correo,
-					':id' =>$id
+					':numero' =>$numero,
+					':id_lead' =>$id_lead
 				));
 				header('Location: index.php');
 			}
@@ -48,13 +48,13 @@
 			echo "<script> alert('Los campos estan vacios');</script>";
 		}
 	}
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Editar Cliente</title>
+	<title>Editar Lead</title>
 	<link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
@@ -62,15 +62,15 @@
 		<h2>CRUD EN PHP CON MYSQL</h2>
 		<form action="" method="post">
 			<div class="form-group">
+				<input type="text" name="id_lead" value="<?php if($resultado) echo $resultado['id_lead']; ?>" class="input__text">
 				<input type="text" name="nombre" value="<?php if($resultado) echo $resultado['nombre']; ?>" class="input__text">
-				<input type="text" name="apellidos" value="<?php if($resultado) echo $resultado['apellidos']; ?>" class="input__text">
 			</div>
 			<div class="form-group">
-				<input type="text" name="telefono" value="<?php if($resultado) echo $resultado['telefono']; ?>" class="input__text">
-				<input type="text" name="ciudad" value="<?php if($resultado) echo $resultado['ciudad']; ?>" class="input__text">
-			</div>
-			<div class="form-group">
+				<input type="text" name="apellido" value="<?php if($resultado) echo $resultado['apellido']; ?>" class="input__text">
 				<input type="text" name="correo" value="<?php if($resultado) echo $resultado['correo']; ?>" class="input__text">
+			</div>
+			<div class="form-group">
+				<input type="text" name="numero" value="<?php if($resultado) echo $resultado['numero']; ?>" class="input__text">
 			</div>
 			<div class="btn__group">
 				<a href="index.php" class="btn btn__danger">Cancelar</a>

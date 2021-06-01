@@ -19,13 +19,13 @@
         </section>
     </header>
     <aside id="sidebar">
-      <ul class="menu">
-        <li><a href="Usuarios.php">Usuarios</a></li>
-        <li><a href="Ventas.php">Ventas</a></li>
-        <li><a href="Productos.php">Paquetes</a></li>
-        <li><a href="Comisiones.php">Comisiones</a></li>
-        <li><a href="login.html">Salir</a></li>
-      </ul>
+          <ul>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="ventasResort2.php">Reservaciones</a></li>
+            <li><a href="loginClientes.html">Mis Viajes</a></li>
+            <li><a href="contactoResort.html">Contacto</a></li>
+            <li><a href="about.html">Nosotros</a></li>
+          </ul>
     </aside>
     <section id="container">
       <div class="top-cont">

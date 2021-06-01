@@ -13,12 +13,12 @@
     	<img src="img/logo.png">
     	<nav class="menu">
         	<ul>
-	          <li><a href="#svs">Inicio</a></li>
-	          <li><a href="#hatchback">Reservaciones</a></li>
-	          <li><a href="#coupes">Mis Viajes</a></li>
+	          <li><a href="index.php">Inicio</a></li>
+	          <li><a href="ventasResort2.php">Reservaciones</a></li>
+	          <li><a href="loginClientes.html">Mis Viajes</a></li>
 	          <li><a href="contactoResort.html">Contacto</a></li>
-	          <li><a href="productos.html">Nosotros</a></li>
-        	</ul>
+	          <li><a href="about.html">Nosotros</a></li>
+	        </ul>
       	</nav>
   	</header>
 	<div class="mainContacto">
@@ -33,7 +33,9 @@
 			$contrasenaDato=$_POST['claveDato'];
 			$conf_contrasenaDato=$_POST['validaClave'];
 
-	        Print("Tu cuenta ha sido creada!"."<br>");
+	        Print("<h1 id='alert'>Tu cuenta a sido creada.</h1><br>");
+
+	        Print("<a href='index.php' id='regresar'>Regresar</a>");
             include("ControladorBD.php");
 
 	        $Con = conectar();
@@ -45,14 +47,13 @@
 
 	</div>
 
-
-	<footer id="contacto">
+<footer id="contacto">
 	    <div class="partFooter">
 	      <img src="img/logo.png" alt="">
 	    </div>
 	    <div class="partFooter">
 	      <h4>Hotel & Resort</h4>
-	      <a href="login.html">Inicio</a>
+	      <a href="index.php">Inicio</a>
 	    </div>
 	    <div class="partFooter">
 	      <h4>Acerca de</h4>

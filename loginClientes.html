@@ -11,11 +11,11 @@
 	    <img src="img/logo.png">
 	    <nav class="menu">
 	        <ul>
-		        <li><a href="#svs">Inicio</a></li>
-		        <li><a href="#hatchback">Reservaciones</a></li>
-		        <li><a href="#coupes">Mis Viajes</a></li>
-		        <li><a href="contactoResort.html">Contacto</a></li>
-		        <li><a href="productos.html">Nosotros</a></li>
+	          <li><a href="index.php">Inicio</a></li>
+	          <li><a href="ventasResort2.php">Reservaciones</a></li>
+	          <li><a href="loginClientes.html">Mis Viajes</a></li>
+	          <li><a href="contactoResort.html">Contacto</a></li>
+	          <li><a href="about.html">Nosotros</a></li>
 	        </ul>
 	     </nav>
 	 </header>
@@ -25,12 +25,12 @@
 		</div>
 		<div class="contentLogin">
 			<img src="img/logo.png">
-			<form class="form"method="POST" action="acceder.php">
-				<input type="text" placeholder="&#128272; Usuario" name="usuario" class="inputLogin" required>
-				<input type="password" placeholder="&#128272; Contraseña" name="clave" class="inputLogin" required>
+			<form class="form"method="POST" id="login" action="acceder.php">
+				<input type="text" placeholder="&#128272; Usuario" name="usuario" id="usuario" class="inputLogin" required>
+				<input type="password" placeholder="&#128272; Contraseña" name="clave" id="clave" class="inputLogin" required>
 				<input type="submit" value="Entrar" class="enviar Corto">
 			</form>
-			<p class="textLogin">¿No tienes una cuenta? <a href="registro.html" class="linkLogin">Ingresa aquí</a></p>
+			<p class="textLogin">¿No tienes una cuenta? <a href="registroCuentas.html" class="linkLogin">Ingresa aquí</a></p>
 		</div>
 	</div>
 	<footer id="contacto">
@@ -39,7 +39,7 @@
 	    </div>
 	    <div class="partFooter">
 	      <h4>Hotel & Resort</h4>
-	      <a href="login.html">Inicio</a>
+	      <a href="index.php">Inicio</a>
 	    </div>
 	    <div class="partFooter">
 	      <h4>Acerca de</h4>
@@ -51,6 +51,6 @@
 	            <a href="#">f</a>
 	        </div>
 	    </div>
-	 </footer>
+	  </footer>
 </body>
 </html>

@@ -13,17 +13,22 @@
 		    <img src="img/logo.png">
 		    <nav class="menu">
 		        <ul>
-			        <li><a href="#svs">Inicio</a></li>
-			        <li><a href="#hatchback">Reservaciones</a></li>
-			        <li><a href="#coupes">Mis Viajes</a></li>
-			        <li><a href="contactoResort.html">Contacto</a></li>
-			        <li><a href="productos.html">Nosotros</a></li>
+		          <li><a href="index.php">Inicio</a></li>
+		          <li><a href="ventasResort2.php">Reservaciones</a></li>
+		          <li><a href="loginClientes.html">Mis Viajes</a></li>
+		          <li><a href="contactoResort.html">Contacto</a></li>
+		          <li><a href="about.html">Nosotros</a></li>
 		        </ul>
 		     </nav>
 		 </header>
 		<?php
 		$idDato=$_POST['idVenta'];
 		$paqueteDato=$_POST['claveVenta'];
+
+		if ($idDato == null) {
+			print("yes");
+		}
+
 		include("ControladorBD.php");
         $Con = Conectar();
         $SQL = "SELECT I.ruta,P.descripcion,P.destino,P.salida,P.precio, P.id_paquete, P.clave FROM paquetes P, paquetes_img I WHERE  P.clave = I.clave  AND P.clave ='$paqueteDato' AND P.id_paquete = $idDato AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";
@@ -94,9 +99,9 @@
 						<label># Adultos</label>
 						<input type='number' onclick='calcular();' name='aDato' value='1' id='aDato' min='1' max='100' maxlength='3' class='inputForm small' required><br>
 						<label># Menores</label>
-						<input type='number' onclick='calcular();' name='mDato' value='0' id='mDato' min='0' max='100' maxlength='3' class='inputForm small' required><br>
+						<input type='number' onclick='calcular();' name='mDato' value='0' id='mDato' min='0' max='100' maxlength='3' class='inputForm small'><br>
 						<label>Edades menores</label>
-						<input type='text' placeholder='Ejemplo: 8, 12' name='edadmenoresDato' class='inputForm short' required><br>
+						<input type='text' placeholder='Ejemplo: 8, 12' name='edadmenoresDato' class='inputForm short'><br>
 		      		</div>
 		      		<div class ='columnaV'>
 						<input type='hidden'  name='pDato' value='".$Fila[4]."' id='pDato' required><br>
@@ -127,24 +132,24 @@
         Cerrar($Con);
       ?>
     <footer id="contacto">
-		<div class="partFooter">
-		    <img src="img/logo.png" alt="">
-		</div>
-		<div class="partFooter">
-		    <h4>Hotel & Resort</h4>
-		    <a href="login.html">Inicio</a>
-		</div>
-		<div class="partFooter">
-		    <h4>Acerca de</h4>
-		    <a href="about.html">Hotel & Resort</a>
-		</div>
-		<div class="partFooter">
-		    <h4>Redes sociales</h4>
-		    <div class="social-media">
-		        <a href="#">f</a>
-		    </div>
-		</div>
-	</footer>
+	    <div class="partFooter">
+	      <img src="img/logo.png" alt="">
+	    </div>
+	    <div class="partFooter">
+	      <h4>Hotel & Resort</h4>
+	      <a href="index.php">Inicio</a>
+	    </div>
+	    <div class="partFooter">
+	      <h4>Acerca de</h4>
+	      <a href="about.html">Hotel & Resort</a>
+	    </div>
+	    <div class="partFooter">
+	        <h4>Redes sociales</h4>
+	        <div class="social-media">
+	            <a href="#">f</a>
+	        </div>
+	    </div>
+	  </footer>
       
 	</body>
 

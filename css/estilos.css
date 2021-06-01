@@ -55,7 +55,7 @@ header img{
     width: 900px;
     display: block;
 }
-.mainCatalogo h1{padding-left: 50px;}
+#titlemain h1{padding-left: 50px;}
 /* slideshow Principal */
 .slideshow1 {
     width: 100%;
@@ -478,6 +478,40 @@ header img{
 .medium{width: 115px;}
 .short{width: 100px;}
 .small{width: 30px;}
+
+#alert{
+    position: relative;
+    text-align: center;
+    width: 400px;
+    color: white;
+    size: 30px;
+    border-radius: 5px;
+    border: 1px;
+    background: radial-gradient(circle, rgba(21,144,204,1) 0%, rgba(70,189,252,1) 100%);
+    display: flex;
+    top: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+}
+#regresar{
+    padding-left: 25px;
+    text-decoration: none;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px;
+    background: linear-gradient(0deg, rgba(5,72,170,1) 1%, rgba(46,117,182,1) 100%);
+    display: flex;
+    top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+}
 
 
 /* Pied de pagina */

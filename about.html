@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+<body id="Catalogo">
+  <a name="Inicio"></a>
+  <header>
+    <img src="img/logo.png">
+    <nav class="menu">
+        <ul>
+          <li><a href="index.php">Inicio</a></li>
+          <li><a href="ventasResort2.php">Reservaciones</a></li>
+          <li><a href="loginClientes.html">Mis Viajes</a></li>
+          <li><a href="contactoResort.html">Contacto</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+        </ul>
+      </nav>
+  </header>
+  <div class="mainCatalogo">
+    <!-- SLIDESHOW PRINCIPAL-->
+    <div class="swiper-container slideshow1">
+      <div class="swiper-wrapper wrapper1">
+      
+        <div class='swiper-slide slide1' style='background-image:url(paquetes_img/paquete12.png)'>
+          <div class='sb-description'>
+            <h1>HOTEL & RESORT</h1>
+            <p>Disfruta de unas fabulosas vacaciones por 3 dias o más en el destino que tu prefieras y en el hotel de tu elección</p><br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <hr>
+    <h1 id="titlemain">Acerca de nosotros</h1>
+    <hr>
+    <p>Los mejores precios garantizados en boletos de avión, hoteles, paquetes, renta de autos, cruceros y más, están en Despegar. Puedes planificar tu viaje ahora y realizar reservas con una gran variedad de opciones de vuelos y ofertas increíbles. En la agencia de viaje Despegar puedes elegir tu destino favorito y comenzar a planificar tus tan esperadas vacaciones. Puedes consultar disponibilidad de vuelos y hoteles de forma rápida y sencilla, de forma de encontrar la opción que más se ajuste a tus necesidades. Tenemos ofertas a miles de destinos y contamos con una gran variedad de hoteles para que puedas hospedarte y disfrutar de tu estadía sin problemas. Reserva ahora tu viaje en Despegar, la mayor agencia de viajes de Latinoamérica.</p><br>
+  </div>
+  <footer id="contacto">
+      <div class="partFooter">
+        <img src="img/logo.png" alt="">
+      </div>
+      <div class="partFooter">
+        <h4>Hotel & Resort</h4>
+        <a href="index.php">Inicio</a>
+      </div>
+      <div class="partFooter">
+        <h4>Acerca de</h4>
+        <a href="about.html">Hotel & Resort</a>
+      </div>
+      <div class="partFooter">
+          <h4>Redes sociales</h4>
+          <div class="social-media">
+              <a href="#">f</a>
+          </div>
+      </div>
+    </footer>
+  <script src="js/swiper.min.js"></script>
+    <!-- SCRIPTS DE LOS SLIDESHOW-->
+  <script>
+    var swiper = new Swiper('.slideshow1', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      shadow: true,
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+        shadow: true,
+      },
+      pagination: {
+        
+        el: '.swiper-pagination',
+        dynamicBullets: true,
+      },
+    });
+    var swiper = new Swiper('.slideshow2', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      shadow: true,
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+      },
+    });
+  </script>
+</body>
+</html>

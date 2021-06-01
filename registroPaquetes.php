@@ -48,8 +48,8 @@
           <input type="text" placeholder="Ejemplo: A" maxlength="1"name="PAQUETE" class="inputCh" required><br>
           <label>Precio</label><br>
           <input type="number" maxlength="9" name="PRECIO" class="inputCh" required><br>
-          <label>Cantidad de personas</label><br>
-          <input type="number"  name="PERSONAS" min="1" max="999" maxlength="3" required><br>
+          <label>Días</label><br>
+          <input type="number"  name="DIAS" min="1" max="999" maxlength="3" required><br>
           <label>Disponibilidad</label><br>
           <input type="number" name="VACANTES" min="0" max="999" maxlength="3" class="inputCh" required><br>
           <label>Status</label><br>
@@ -84,7 +84,7 @@
                 $DESCRIPCION  = $_POST["DESCRIPCION"];
                 $PAQUETE  = $_POST["PAQUETE"];
                 $PRECIO  = $_POST["PRECIO"];
-                $PERSONAS  = $_POST["PERSONAS"];
+                $DIAS  = $_POST["DIAS"];
                 $VACANTES  = $_POST["VACANTES"];
                 $STATUS  = $_POST["STATUS"];
                 $TIPO  = $_POST["TIPO"]; 
@@ -100,7 +100,7 @@
 
                 $Con = conectar();
 
-                $query2 = "INSERT INTO paquetes  VALUES (default,'$CLAVE','$SALIDA','$DESTINO','$DESCRIPCION','$PAQUETE','$PRECIO','$PERSONAS','$VACANTES','$STATUS','$TIPO','$DATE')";
+                $query2 = "INSERT INTO paquetes  VALUES (default,'$CLAVE','$SALIDA','$DESTINO','$DESCRIPCION','$PAQUETE','$PRECIO','$DIAS','$VACANTES','$STATUS','$TIPO','$DATE')";
                 
                 $Cons = consultar($Con,$query2); 
                 Print($query2);

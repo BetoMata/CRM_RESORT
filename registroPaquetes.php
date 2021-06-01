@@ -70,14 +70,7 @@
               $ruta = "paquetes_img/"; 
               $nombrefinal= trim ($_FILES['fichero']['name']); //Eliminamos los espacios en blanco
               $upload= $ruta . $nombrefinal;
-              if(move_uploaded_file($_FILES['fichero']['tmp_name'], $upload)) { //movemos el archivo a su ubicacion 
-                echo "<br><hr><br>";
-                echo "<b>Paquete:</b><br>";  
-                echo "Imagen: <i><a href=\"".$ruta . $nombrefinal."\">".$_FILES['fichero']['name']."</a></i><br>";  
-                echo "Tipo de imagen: <i>".$_FILES['fichero']['type']."</i><br>";  
-                echo "Tamaño de imagen: <i>".$_FILES['fichero']['size']." bytes</i><br>";  
-                echo "<br><hr><br>";  
-                                        
+              if(move_uploaded_file($_FILES['fichero']['tmp_name'], $upload)) { //movemos el archivo a su ubicacio             
                 $CLAVE  = $_POST["CLAVE"];
                 $SALIDA  = $_POST["SALIDA"];
                 $DESTINO  = $_POST["DESTINO"];
@@ -92,7 +85,7 @@
 
                 $Con = conectar();
 
-                $query = "INSERT INTO paquetes_img  VALUES (default,'$CLAVE','".$nombrefinal."','".$_FILES['fichero']['type']."','".$_FILES['fichero']['size']."')";
+                $query = "INSERT INTO paquetes_img  VALUES (default,'$CLAVE','".$nombrefinal."','".$_FILES['fichero']['type']."')";
                 
                 $Cons = consultar($Con,$query); 
                 Print($query);
@@ -103,10 +96,7 @@
                 $query2 = "INSERT INTO paquetes  VALUES (default,'$CLAVE','$SALIDA','$DESTINO','$DESCRIPCION','$PAQUETE','$PRECIO','$DIAS','$VACANTES','$STATUS','$TIPO','$DATE')";
                 
                 $Cons = consultar($Con,$query2); 
-                Print($query2);
-                cerrar($Con); 
-                echo "El archivo '".$CLAVE."' se ha subido con éxito <br>";
-                echo "<br><hr><br>";       
+                cerrar($Con);       
               }  
             }  
           } 

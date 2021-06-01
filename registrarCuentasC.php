@@ -26,7 +26,7 @@
         <?php
 	        $nombreDato=$_POST['nombreDato'];
 			$apellidoDato=$_POST['apellidoDato'];
-			$edad=$_POST['edadDato'];
+			$edadDato=$_POST['edadDato'];
 			$telefonoDato=$_POST['numeroDato'];
 			$correoDato=$_POST['correoDato'];
 			$usernameDato=$_POST['usernameDato'];
@@ -40,7 +40,7 @@
 
 	        $Con = conectar();
 	        $SQL = "INSERT INTO cuentas_clientes VALUES (default, '$nombreDato', '$apellidoDato', '$edadDato', '$telefonoDato', '$correoDato', 
-			'$usernameDato', '$contrasenaDato', '1');";
+			'$usernameDato', '$contrasenaDato');";
 	        $Cons = consultar($Con,$SQL);
 	        cerrar($Con);
         ?>

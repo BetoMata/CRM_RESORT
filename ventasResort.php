@@ -25,10 +25,6 @@
 		$idDato=$_POST['idVenta'];
 		$paqueteDato=$_POST['claveVenta'];
 
-		if ($idDato == null) {
-			print("yes");
-		}
-
 		include("ControladorBD.php");
         $Con = Conectar();
         $SQL = "SELECT I.ruta,P.descripcion,P.destino,P.salida,P.precio, P.id_paquete, P.clave FROM paquetes P, paquetes_img I WHERE  P.clave = I.clave  AND P.clave ='$paqueteDato' AND P.id_paquete = $idDato AND I.id_paqueteIMG = P.id_paquete  AND P.disponibilidad >= 1 AND  P.status = 1; ";

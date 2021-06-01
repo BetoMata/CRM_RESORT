@@ -28,6 +28,7 @@
 			$clave_paqueteDato=$_POST['clave_paqueteDato'];
 			$fechallegadaDato=$_POST['fechallegadaDato'];
 			$fechasalidaDato=$_POST['fechasalidaDato'];
+			$fechacompraDato=$_POST['fechasalidaDato'];
 			$nombreDato=$_POST['nombreDato'];
 			$correoDato=$_POST['correoDato'];
 			$telDato=$_POST['telDato'];
@@ -45,8 +46,8 @@
 
 	        $Con = conectar();
 	        $SQL = "INSERT INTO ventas VALUES 
-			(default, '$id_paqueteDato','$clave_paqueteDato','$fechallegadaDato','$fechasalidaDato','$nombreDato','$correoDato',
-			'$telDato','$aDato','$mDato','$edadmenoresDato','$precioDato','$precio_finalDato', '0000');";
+			(default, '$id_paqueteDato','$clave_paqueteDato','$fechallegadaDato','$fechasalidaDato','$fechacompraDato','$nombreDato','$correoDato',
+			'$telDato','$aDato','$mDato','$edadmenoresDato','$precioDato','$precio_finalDato');";
 	        $Cons = consultar($Con,$SQL);
 	        cerrar($Con);
 

@@ -38,7 +38,7 @@
 			$precioDato=$_POST['precioDato'];
 			$precio_finalDato=$_POST['pagoDato'];
 		
-
+			$telDato = str_replace(" ", "", $telDato);
 	        Print("<h1 id='alert'>¡Gracias por realizar tu compra!</h1><br>");
 	        Print("<a href='index.php' id='regresar'>Regresar</a>");
 

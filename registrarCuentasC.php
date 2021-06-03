@@ -32,7 +32,8 @@
 			$usernameDato=$_POST['usernameDato'];
 			$contrasenaDato=$_POST['claveDato'];
 			$conf_contrasenaDato=$_POST['validaClave'];
-
+			
+			$telefonoDato = str_replace(" ", "", $telefonoDato);
 	        Print("<h1 id='alert'>Tu cuenta a sido creada.</h1><br>");
 
 	        Print("<a href='index.php' id='regresar'>Regresar</a>");

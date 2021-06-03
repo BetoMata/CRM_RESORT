@@ -4,7 +4,7 @@
 	if(isset($_GET['id_usuario'])){
 		$id_usuario=(int) $_GET['id_usuario'];
 
-		$buscar_id=$con->prepare('SELECT * FROM usuario WHERE id_usuario =: id_usuario LIMIT 1');
+		$buscar_id=$con->prepare('SELECT * FROM usuarios WHERE id_usuario =:id_usuario LIMIT 1');
 		$buscar_id->execute(array(
 			'id_usuario' => $id_usuario
 		));
@@ -29,17 +29,17 @@
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
-				$consulta_update=$con->prepare(' UPDATE usuario SET  
-					id_usuario =: id_usuario,
-					username =: username,
-					contrasena =: contrasena,
-					nombre =: nombre,
-					apellido =: apellido,
-					numero =: numero,
-					correo =: correo,
-					status =: status,
-					tipo =: tipo
-					WHERE id_usuario =: id_usuario;'
+				$consulta_update=$con->prepare(' UPDATE usuarios SET  
+					id_usuario =:id_usuario,
+					username =:username,
+					contrasena =:contrasena,
+					nombre =:nombre,
+					apellido =:apellido,
+					numero =:numero,
+					correo =:correo,
+					status =:status,
+					tipo =:tipo
+					WHERE id_usuario =:id_usuario;'
 				);
 				$consulta_update->execute(array(
 					':id_usuario' =>$id_usuario,
@@ -65,7 +65,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Editar Cliente</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">

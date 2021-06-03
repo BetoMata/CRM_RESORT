@@ -15,7 +15,7 @@
 
 
 	if(isset($_POST['guardar'])){
-		$id_lead=$_POST['lead'];
+		$id_lead=$_POST['id_lead'];
 		$nombre=$_POST['nombre'];
 		$apellido=$_POST['apellido'];
 		$correo=$_POST['correo'];
@@ -26,7 +26,7 @@
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
-				$consulta_update=$con->prepare(' UPDATE clientes SET  
+				$consulta_update=$con->prepare(' UPDATE leads SET  
 					id_lead=:id_lead,
 					nombre=:nombre,
 					apellido=:apellido,
@@ -40,7 +40,6 @@
 					':apellido' =>$apellido,
 					':correo' =>$correo,
 					':numero' =>$numero,
-					':id_lead' =>$id_lead
 				));
 				header('Location: index.php');
 			}
@@ -55,7 +54,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Editar Lead</title>
-	<link rel="stylesheet" href="css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">

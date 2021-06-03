@@ -171,7 +171,6 @@
                   </tfoot>
                   <tbody>
                     <?php while($row = $resultado->fetch_assoc()) { ?>
-
                     <tr>
                       <td><?php echo $row['usuario']; ?></td>
                       <td><?php echo $row['password']; ?></td>

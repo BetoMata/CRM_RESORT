@@ -1,25 +1,76 @@
-<?php
-    include("ControladorBD.php");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Login - CRM RESORT</title>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
 
-	$Con = conectar();
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-body">
+                                    <?php
+                                        include("ControladorBD.php");
 
-    $correo = $_POST['correo'];
-    $contrasena = $_POST['contrasena'];
+                                        $Con = conectar();
 
-    session_start();
+                                        $correo = $_POST['correo'];
 
-    $_SESSION['usuario'] = $usuario;
+                                        session_start();
 
-    require "../../conexion.php";    
-    $Con = conectar();
-    $sql = "SELECT contrasena FROM usuarios WHERE correo='$correo'";
+                                        $Con = conectar();
+                                        $sql = "SELECT contrasena FROM usuarios WHERE correo='$correo'";
 
-    $resultado = $mysqli_query($Con, $sql);
-    
-    $text = "La contrasena es";
-    echo "<script>
-                alert(".$text.$correo.");
-    </script>";
+                                        $resultado = consultar($Con, $sql);
 
-    cerrar($Con);
-?>
+                                        $fila= mysqli_fetch_row($resultado);
+
+                                        Print("<center><h1>La contrasena es: $fila[0]</h1><br><center>");
+
+                                        cerrar($Con);
+                                    ?>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <div class="small"><a href="screens/login.html">Tienes cuenta? Ir al Login</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+				
+            <!-- PIE DE PAGINA -->
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; CRM RESORT 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+</html>
+
+
+
+
+

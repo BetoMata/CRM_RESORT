@@ -27,7 +27,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inicio</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">
@@ -45,14 +45,15 @@
 				<td>Id</td>
 				<td>Clave</td>
 				<td>Salida</td>
+				<td>Destino</td>
 				<td>Descripción</td>
 				<td>Paquete</td>
 				<td>Precio</td>
-				<td>Personas</td>
-				<td>Disponibilidad</td>
+				<td>Dias</td>
+				<td>Disp</td>
 				<td>Status</td>
 				<td>Tipo</td>
-				<td>Vencimiento</td>
+				<td>Venc</td>
 				<td colspan="2">Acción</td>
 			</tr>
 			<?php foreach($resultado as $fila):?>
@@ -64,7 +65,7 @@
 					<td><?php echo $fila['descripcion']; ?></td>
 					<td><?php echo $fila['paquete']; ?></td>
 					<td><?php echo $fila['precio']; ?></td>
-					<td><?php echo $fila['personas']; ?></td>
+					<td><?php echo $fila['dias']; ?></td>
 					<td><?php echo $fila['disponibilidad']; ?></td>
 					<td><?php echo $fila['status']; ?></td>
 					<td><?php echo $fila['tipo']; ?></td>

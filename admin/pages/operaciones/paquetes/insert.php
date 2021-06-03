@@ -9,14 +9,14 @@
 		$descripcion = $_POST['descripcion'];
 		$paquete = $_POST['paquete'];
 		$precio = $_POST['precio'];
-		$personas = $_POST['personas'];
+		$dias = $_POST['dias'];
 		$disponibilidad = $_POST['disponibilidad'];
 		$status = $_POST['status'];
 		$tipo = $_POST['tipo'];
 		$vencimiento = $_POST['vencimiento'];
 
-		if(!empty($clave) && !empty($salida) && !empty($destino) && !empty($descripcion) && !empty($paquete) && !empty($precio) && !empty($personas) && !empty($disponibilidad) && !empty($status) && !empty($tipo) && !empty($vencimiento)){
-			$consulta_insert=$con->prepare('INSERT INTO paquetes(:id_paquete, :clave, :salida, :destino, :descripcion, :paquete, :precio, :personas, :disponibilidad, :status, :tipo, :vencimiento)');
+		if(!empty($clave) && !empty($salida) && !empty($destino) && !empty($descripcion) && !empty($paquete) && !empty($precio) && !empty($dias) && !empty($disponibilidad) && !empty($status) && !empty($tipo) && !empty($vencimiento)){
+			$consulta_insert=$con->prepare('INSERT INTO paquetes(:id_paquete, :clave, :salida, :destino, :descripcion, :paquete, :precio, :dias, :disponibilidad, :status, :tipo, :vencimiento)');
 			$consulta_insert->execute(array(
 				':id_paquete' =>$id_paquete,
 				':clave' =>$clave,
@@ -25,7 +25,7 @@
 				':descripcion' =>$descripcion,
 				':paquete' =>$paquete,
 				':precio' =>$precio,
-				':personas' =>$status,
+				':dias' =>$dias,
 				':disponibilidad' =>$disponibilidad,
 				':status' =>$status,
 				':tipo' =>$tipo,
@@ -45,7 +45,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Nuevo Cliente</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">
@@ -65,11 +65,11 @@
 			</div>
 			<div class="form-group">
 				<input type="text" name="precio" placeholder="Precio" class="input__text">
-				<input type="text" name="personas" placeholder="Personas" class="input__text">
+				<input type="text" name="dias" placeholder="Dias" class="input__text">
 			</div>
 			<div class="form-group">
 				<input type="text" name="disponibilidad" placeholder="Disponibilidad" class="input__text">
-				<input type="text" name="status" placeholder="Status" class="input__text">
+				<input type="text" name="status" placeholder="status" class="input__text">
 			</div>
 			<div class="form-group">
 				<input type="text" name="tipo" placeholder="Tipo" class="input__text">

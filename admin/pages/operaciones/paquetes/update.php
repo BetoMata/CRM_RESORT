@@ -4,7 +4,7 @@
 	if(isset($_GET['id_paquete'])){
 		$id_paquete=(int) $_GET['id_paquete'];
 
-		$buscar_id=$con->prepare('SELECT * FROM paquetes WHERE id_paquete =: id_paquete LIMIT 1');
+		$buscar_id=$con->prepare('SELECT * FROM paquetes WHERE id_paquete =:id_paquete LIMIT 1');
 		$buscar_id->execute(array(
 			':id_paquete' => $id_paquete
 		));
@@ -21,39 +21,38 @@
 		$descripcion=$_POST['descripcion'];
 		$paquete=$_POST['paquete'];
 		$precio=$_POST['precio'];
-		$personas=$_POST['personas'];
+		$dias=$_POST['dias'];
 		$disponibilidad=$_POST['disponibilidad'];
 		$status=$_POST['status'];
 		$tipo=$_POST['tipo'];
 		$vencimiento=$_POST['vencimiento'];
-		$id_usuario=(int) $_GET['id_usuario'];
+		$id_paquete=(int) $_GET['id_paquete'];
 
-		if(!empty($id_paquete) && !empty($clave) && !empty($salida) && !empty($destino) && !empty($descripcion)  && !empty($paquete)  && !empty($precio)  && !empty($personas) && !empty($disponibilidad) && !empty($status) && !empty($tipo) && !empty($vencimiento)){
-				$consulta_update=$con->prepare(' UPDATE usuario SET  
-				id_paquete =: id_paquete,
-				clave =: clave,
-				salida =: salida,
-				destino =: destino,
-				descripcion =: descripcion,
-				paquete =: paquete,
-				precio =: precio,
-				personas =: personas,
-				disponibilidad =: disponibilidad,
-				status =: status,
-				tipo =: tipo,
-				vencimiento =: vencimiento
-				WHERE id_usuario =: id_usuario;'
+		if(!empty($id_paquete) && !empty($clave) && !empty($salida) && !empty($destino) && !empty($descripcion)  && !empty($paquete)  && !empty($precio)  && !empty($dias) && !empty($disponibilidad) && !empty($status) && !empty($tipo) && !empty($vencimiento)){
+				$consulta_update=$con->prepare(' UPDATE paquetes SET  
+				id_paquete=:id_paquete,
+				clave=:clave,
+				salida=:salida,
+				destino=:destino,
+				descripcion=:descripcion,
+				paquete=:paquete,
+				precio=:precio,
+				dias=:dias,
+				disponibilidad=:disponibilidad,
+				status=:status,
+				tipo=:tipo,
+				vencimiento=:vencimiento
+				WHERE id_paquete =:id_paquete;'
 			);
 			$consulta_update->execute(array(
 				':id_paquete' =>$id_paquete,
 				':clave' =>$clave,
-				':contrasena' =>$contrasena,
 				':salida' =>$salida,
 				':destino' =>$destino,
 				':descripcion' =>$descripcion,
 				':paquete' =>$paquete,
 				':precio' =>$precio,
-				':personas' =>$personas,
+				':dias' =>$dias,
 				':disponibilidad' =>$disponibilidad,
 				':status' =>$status,
 				':tipo' =>$tipo,
@@ -69,14 +68,14 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head></head>
 	<meta charset="UTF-8">
 	<title>Editar Paquete</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">
-		<h2>USUARIOS</h2>
+		<h2>PAQUETES</h2>
 		<form action="" method="post">
 			<div class="form-group">
 				<input type="text" name="id_paquete" value="<?php if($resultado) echo $resultado['id_paquete']; ?>" class="input__text">
@@ -92,7 +91,7 @@
 			</div>
 			<div class="form-group">
 				<input type="text" name="precio" value="<?php if($resultado) echo $resultado['precio']; ?>" class="input__text">
-				<input type="text" name="personas" value="<?php if($resultado) echo $resultado['personas']; ?>" class="input__text">
+				<input type="text" name="dias" value="<?php if($resultado) echo $resultado['dias']; ?>" class="input__text">
 			</div>
 			<div class="form-group">
 				<input type="text" name="disponibilidad" value="<?php if($resultado) echo $resultado['disponibilidad']; ?>" class="input__text">

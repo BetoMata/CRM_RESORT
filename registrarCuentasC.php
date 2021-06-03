@@ -12,7 +12,7 @@
   	<header>
     	<img src="img/logo.png">
     	<nav class="menu">
-        	<ul>
+        	<ul></ul>
 	          <li><a href="index.php">Inicio</a></li>
 	          <li><a href="ventasResort2.php">Reservaciones</a></li>
 	          <li><a href="loginClientes.html">Mis Viajes</a></li>

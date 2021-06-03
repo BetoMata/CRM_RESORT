@@ -1,7 +1,7 @@
 <?php
 	include_once '../conexion.php';
 
-	$sentencia_select = $con -> prepare('SELECT * FROM usuario ORDER BY id_usuario DESC');
+	$sentencia_select = $con -> prepare('SELECT * FROM usuarios ORDER BY id_usuario DESC');
 	$sentencia_select->execute();
 	$resultado=$sentencia_select->fetchAll();
 
@@ -11,7 +11,7 @@
 		$buscar_text=$_POST['buscar'];
 		
 		$select_buscar=$con->prepare('
-			SELECT * FROM usuario WHERE nombre LIKE :campo OR apellido LIKE :campo;'
+			SELECT * FROM usuarios WHERE nombre LIKE :campo OR apellido LIKE :campo;'
 		);
 
 		$select_buscar->execute(array(
@@ -27,7 +27,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inicio</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">

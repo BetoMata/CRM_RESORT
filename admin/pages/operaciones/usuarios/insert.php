@@ -16,7 +16,7 @@
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO usuario(id_usuario, username, contrasena, nombre, apellido, numero, correo, status, tipo) VALUES(:id_usuario, :username, :contrasena, :nombre, :apellido, :numero, :correo, :status, :tipo)');
+				$consulta_insert=$con->prepare('INSERT INTO usuarios(id_usuario, username, contrasena, nombre, apellido, numero, correo, status, tipo) VALUES(:id_usuario, :username, :contrasena, :nombre, :apellido, :numero, :correo, :status, :tipo)');
 				$consulta_insert->execute(array(
 					':id_usuario' =>$id_usuario,
 					':username' =>$username,
@@ -43,7 +43,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Nuevo Cliente</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login- CRM RESORT</title>
+        <title>Login - CRM RESORT</title>
         <link href="../../css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -22,20 +22,20 @@
                                     <div class="card-body">
                                         <form method="POST" action="../validarLogin.php">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" name="usuario" placeholder="Ingresa tu correo" />
+                                                <label class="small mb-1" for="inputEmailAddress">Correo</label>
+                                                <input class="form-control py-4" type="text" name="correo" placeholder="Ingresa tu correo" required/>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Contraseña</label>
-                                                <input class="form-control py-4" id="inputPassword" type="password" placeholder="Ingresa tu contraseña" />
+                                                <input class="form-control py-4" type="password" name="contrasena" placeholder="Ingresa tu contraseña" required/>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Tipo de Usuario</label>
-                                                <input class="form-control py-4" id="inputType" type="text" name="tipo" placeholder="Ingresa tu tipo de usuario" />
+                                                <input class="form-control py-4" type="text" name="tipo" placeholder="Ingresa tu tipo de usuario" required/>
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.html">Olvido su Contraseña?</a>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
+                                                <input class="btn btn-primary" type="submit" value="Entrar" />
                                             </div>
                                         </form>
                                     </div>

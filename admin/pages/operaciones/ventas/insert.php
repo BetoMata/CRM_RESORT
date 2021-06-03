@@ -21,7 +21,7 @@
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
-				$consulta_insert=$con->prepare('INSERT INTO ventas(id_venta, id_paquete, clave, fecha_salida, fecha_llegada, fecha_compra, correo, telefono, adultos, menores, edad_menores, precio, pago) VALUES(:id_venta, :id_paquete, :clave, :fecha_salida, :fecha_llegada, :fecha_compra, :nombre, :correo, :telefono, :adultos, :menores, :edad_menores, :precio, :pago)');
+				$consulta_insert=$con->prepare('INSERT INTO ventas(id_venta, id_paquete, clave, fecha_salida, fecha_llegada, fecha_compra, nombre, correo, telefono, adultos, menores, edad_menores, precio, pago) VALUES(:id_venta, :id_paquete, :clave, :fecha_salida, :fecha_llegada, :fecha_compra, :nombre, :correo, :telefono, :adultos, :menores, :edad_menores, :precio, :pago)');
 				$consulta_insert->execute(array(
 					':id_venta' =>$id_venta,
 					':id_paquete' =>$id_paquete,
@@ -54,7 +54,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Nuevo Cliente</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">

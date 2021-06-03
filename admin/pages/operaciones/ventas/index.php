@@ -27,7 +27,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inicio</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">
@@ -53,6 +53,7 @@
 				<td>Telefono</td>
 				<td>Adultos</td>
 				<td>Menores</td>
+				<td>Edad Menores</td>
 				<td>Precio</td>
 				<td>Pago</td>
 				<td colspan="2">Acción</td>
@@ -60,7 +61,7 @@
 			<?php foreach($resultado as $fila):?>
 				<tr >
 					<td><?php echo $fila['id_venta']; ?></td>
-					<td><?php echo $fila['id_paqueta']; ?></td>
+					<td><?php echo $fila['id_paquete']; ?></td>
 					<td><?php echo $fila['clave']; ?></td>
 					<td><?php echo $fila['fecha_salida']; ?></td>
 					<td><?php echo $fila['fecha_llegada']; ?></td>

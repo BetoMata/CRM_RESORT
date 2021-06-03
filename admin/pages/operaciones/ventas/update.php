@@ -4,7 +4,7 @@
 	if(isset($_GET['id_ventas'])){
 		$id_venta=(int) $_GET['id_usuario'];
 
-		$buscar_id=$con->prepare('SELECT * FROM ventas WHERE id_venta =: id_venta LIMIT 1');
+		$buscar_id=$con->prepare('SELECT * FROM ventas WHERE id_venta =:id_venta LIMIT 1');
 		$buscar_id->execute(array(
 			'id_venta' => $id_venta
 		));
@@ -32,21 +32,21 @@
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
 				$consulta_update=$con->prepare(' UPDATE ventas SET  
-					id_venta=: id_venta,
-					id_paquete =: id_paquete,
-					clave =: clave,
-					fecha_salida =: fecha_salida,
-					fecha_llegada =: fecha llegada,
-					fecha_compra =: fecha_compra,
-					nombre =: nombre,
-					correo =: correo,
-					telefono =: telefono,
-					adultos =: adultos,
-					menores =: menores,
-					edad_menores =: edad_menores,
-					precio =: precio,
-					pago =: pago,
-					WHERE id_venta =: id_venta;'
+					id_venta=:id_venta,
+					id_paquete =:id_paquete,
+					clave =:clave,
+					fecha_salida =:fecha_salida,
+					fecha_llegada =:fecha llegada,
+					fecha_compra =:fecha_compra,
+					nombre =:nombre,
+					correo =:correo,
+					telefono =:telefono,
+					adultos =:adultos,
+					menores =:menores,
+					edad_menores =:edad_menores,
+					precio =:precio,
+					pago =:pago,
+					WHERE id_venta =:id_venta;'
 				);
 				$consulta_update->execute(array(
 					':id_venta' =>$id_venta,
@@ -77,7 +77,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Editar Cliente</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
 	<div class="contenedor">

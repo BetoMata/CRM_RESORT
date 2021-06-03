@@ -13,7 +13,6 @@
     </head>
 
     <body class="sb-nav-fixed">
-
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">CRM RESORT</a>
             
@@ -47,8 +46,8 @@
                 <!--MENU PRINCIPAL-->
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="../dashboard.php">
+                            <div class="sb-sidenav-menu-heading">Graficas</div>
+                            <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -101,7 +100,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Ventas
                             </a>
-                            <a class="nav-link" href="tablas.php">
+                            <a class="nav-link" href="../operaciones/usuarios/index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Usuarios
                             </a>
@@ -116,7 +115,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Charts</h1>
+                        <h1 class="mt-4">Graficas</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">Charts</li>
@@ -129,7 +128,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
-                                Area Chart Example
+                                Ventas
                             </div>
                             <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
                             <div class="card-footer small text-muted">Actualizado ayer a las 11:59 PM</div>
@@ -178,9 +177,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="assets/demo/chart-pie-demo.js"></script>
+        <script src="../../js/chart-area-demo.js"></script>
+        <script src="../../js/chart-bar-demo.js"></script>
+        <script src="../../js/chart-pie-demo.js"></script>
         
     </body>
 </html>

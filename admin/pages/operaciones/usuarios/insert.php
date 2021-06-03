@@ -12,13 +12,13 @@
 		$status = $_POST['status'];
 		$tipo = $_POST['tipo'];
 
-		if(!empty($nombre) && !empty($apellidos) && !empty($telefono) && !empty($ciudad) && !empty($correo) ){
+		if(!empty($id_usuario) && !empty($username) && !empty($contrasena) && !empty($nombre) && !empty($apellido) && !empty($numero)&& !empty($correo) && !empty($status)&& !empty($tipo) ){
 			if(!filter_var($correo,FILTER_VALIDATE_EMAIL)){
 				echo "<script> alert('Correo no valido');</script>";
 			}else{
 				$consulta_insert=$con->prepare('INSERT INTO usuarios(id_usuario, username, contrasena, nombre, apellido, numero, correo, status, tipo) VALUES(:id_usuario, :username, :contrasena, :nombre, :apellido, :numero, :correo, :status, :tipo)');
 				$consulta_insert->execute(array(
-					':id_usuario' =>$id_usuario,
+					':id_usuario' =>'default',
 					':username' =>$username,
 					':contrasena' =>$contrasena,
 					':nombre' =>$nombre,

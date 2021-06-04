@@ -78,8 +78,10 @@
 					<td><a href="delete.php?id_venta=<?php echo $fila['id_venta']; ?>" class="btn__delete">Eliminar</a></td>
 				</tr>
 			<?php endforeach ?>
-
 		</table>
 	</div>
+
+	<script src="../../../js/confirmacion.js"></script>
+
 </body>
 </html>
